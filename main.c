@@ -32,7 +32,7 @@ int main(void){
 	// Codigo para el juego
 	for (int i = 0; i < 5; ++i)
 	{
-		printf("%d\n", i);
+		printf("Esto es una prueba: %d\n", i+1);
 	}
 
 
