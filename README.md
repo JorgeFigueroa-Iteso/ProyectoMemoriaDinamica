@@ -1,5 +1,5 @@
-# Proyecto
-## Battleship con memoria dinámica
+# Proyecto 1 - Programación con memoria dinámica
+## Battleship
 [![Build Status](https://github.com/JorgeFigueroa-Iteso/ProyectoMemoriaDinamica)](https://i.pinimg.com/originals/5b/60/ae/5b60ae30048db47dbdcb5ecde082c115.jpg)
 
 ## Descripción
