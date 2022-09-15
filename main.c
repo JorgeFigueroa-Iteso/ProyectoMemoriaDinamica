@@ -27,11 +27,16 @@
 int main(void){
 
 	// Declración de variables
+	int a = 0;
 
-	// Agragar las funciones para selección de modo de juego, entre otros
+	// Codigo para el juego
+	for (int i = 0; i < 5; ++i)
+	{
+		printf("%d\n", i);
+	}
 
 
-	system("pause");
+	// system("pause");
 	return 0;
 }
 
