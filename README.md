@@ -30,6 +30,10 @@ Iniciar y salir del juego
 - Enoch Joaquín Álvarez Goñi
 - Jorge Ramón Figueroa Maya
 
+## Inspectores
+- Juan Pablo Alvarez Camarena
+- Sebastián Carrillo Cuevas
+
 ## Licencia
 > No se permite el uso de este código, tal como plagio, en caso de querer utilizar el código, contacte con alguno de los dos Colaboladores
 
