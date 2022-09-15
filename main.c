@@ -30,10 +30,15 @@ int main(void){
 	int a = 0;
 
 	// Codigo para el juego
+
+
+	// Quitar el código de pueba
+	// --------------------------------------------------------------- //
 	for (int i = 0; i < 5; ++i)
 	{
 		printf("Esto es una prueba: %d\n", i+1);
 	}
+	// --------------------------------------------------------------- //
 
 
 	// system("pause");
