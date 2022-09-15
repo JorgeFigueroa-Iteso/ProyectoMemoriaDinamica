@@ -1,6 +1,6 @@
 # Proyecto 1 - Programación con memoria dinámica
 ## Battleship
-[![Build Status](https://travis-ci.org/joemccann/dillinger.svg?branch=master)](https://github.com/JorgeFigueroa-Iteso/ProyectoMemoriaDinamica)
+[![Build Status](https://travis-ci.org/joemccann/dillinger.svg?branch=master)](https://github.com/JorgeFigueroa-Iteso/ProyectoMemoriaDinamica/blob/main/main.c)
 
 ## Descripción
 Todos los puntos que lleva este proyecto están mas claaros en el archivo evaluación01b-1.pdf
