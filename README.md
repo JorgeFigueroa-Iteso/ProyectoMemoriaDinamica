@@ -15,9 +15,12 @@ Iniciar y salir del juego
 
 ## Uso
 
-## Integrantes
+## Colaboradores
+- Enoch Joaquín Álvarez Goñi
+- Jorge Ramón Figueroa Maya
 
 ## Licencia
+> No se permite el uso de este código, tal como plagio, en caso de querer utilizar el código, contacte con alguno de los dos Colaboladores
 
 ## Estatus del proyecto
 Cada que pasemos de face, se actualizará este apartado
