@@ -1,4 +1,3 @@
-# ProyectoMemoriaDinamica
-Proyecto en el que se desarrollará el Proyecto de Programación de Memoria Dinámica
+# Proyecto
+Battleship con memoria dinámica
 
-Se realizará un BattleShip, con programación con memoria Dinámica
