@@ -3,6 +3,8 @@
 
 int main(void){
 
+	printf("a\n");
+
 	// system("pause");
 	return 0;
 }
