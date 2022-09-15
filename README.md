@@ -33,6 +33,8 @@ Iniciar y salir del juego
 ## Licencia
 > No se permite el uso de este código, tal como plagio, en caso de querer utilizar el código, contacte con alguno de los dos Colaboladores
 
+> Si lo copias, eres puto
+
 ## Estatus del proyecto
 Cada que pasemos de face, se actualizará este apartado
 Por lo que estaremos al tanto de los pasos que veremos
