@@ -12,7 +12,6 @@ Editar la dificultad
 Iniciar y salir del juego
 
 > Video para la explicación del proyecto:
-
 ![Video intro](https://i.pinimg.com/originals/60/c1/4a/60c14a43fb4745795b3b358868517e79.png)
 
 ## Uso
