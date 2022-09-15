@@ -8,7 +8,7 @@ int main(void){
 		printf("Awa Awa: %d\n", i+1);
 	}
 
-	printf("Hello World!");
+	printf("Éstas con puras mamadas");
 
 	// system("pause");
 	return 0;
