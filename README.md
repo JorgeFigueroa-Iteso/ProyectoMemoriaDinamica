@@ -1,6 +1,6 @@
 # Proyecto
 ## Battleship con memoria dinámica
-[![Build Status](https://github.com/JorgeFigueroa-Iteso/ProyectoMemoriaDinamica)](https://github.com/JorgeFigueroa-Iteso/)
+[![Build Status](https://github.com/JorgeFigueroa-Iteso/ProyectoMemoriaDinamica)](https://i.pinimg.com/originals/5b/60/ae/5b60ae30048db47dbdcb5ecde082c115.jpg)
 
 ## Descripción
 Todos los puntos que lleva este proyecto están mas claaros en el archivo evaluación01b-1.pdf
