@@ -31,7 +31,7 @@ int main(void){
 	// Agragar las funciones para selección de modo de juego, entre otros
 
 
-	// system("pause");
+
 	return 0;
 }
 
