@@ -5,7 +5,6 @@ int main(void){
 
 	printf("Oa\n");
 	
-
 	// system("pause");
 	return 0;
 }
