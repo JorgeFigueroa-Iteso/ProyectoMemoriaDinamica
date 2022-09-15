@@ -1,9 +1,15 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+// Debe mostrar un menu principal, el cual muestre lo siguiente:
+// Dimensión del tablero
+// Selección de dificultad: - Didáctico - Fácil
+// Iniciar juego
+// Salir
+
 int main(void){
 
-	// a
+
 
 	// system("pause");
 	return 0;
