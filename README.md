@@ -14,6 +14,12 @@ Iniciar y salir del juego
 ## Instalación
 
 ## Uso
+> Es un proyecto personal, no es para el público, el archivo ".exe", pero no el .c
+> Es un Battleship, como se mecionó anteriormente, con un menú que se mostrará en la terminal
+> Dimensiones del tablero: Se podrá ingresar con números enteros (De momento no tiene límite)
+> Dificultad: 1- Didáctico, 2- Fácil
+> Iniciar juego
+> Salir del juego
 
 ## Colaboradores
 - Enoch Joaquín Álvarez Goñi
