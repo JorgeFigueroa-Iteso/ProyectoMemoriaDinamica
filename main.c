@@ -3,9 +3,7 @@
 
 int main(void){
 
-	printf("Oa\n");
 
-	printf("Hola x2");
 
 	// system("pause");
 	return 0;
