@@ -20,7 +20,7 @@ Iniciar y salir del juego
 
 > Dimensiones del tablero: Se podrá ingresar con números enteros (De momento no tiene límite)
 
-> Dificultad: 1- Didáctico, 2- Fácil
+> Dificultad: 1.- Didáctico -- 2.- Fácil
 
 > Iniciar juego
 
