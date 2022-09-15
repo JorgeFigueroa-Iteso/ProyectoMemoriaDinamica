@@ -13,4 +13,5 @@ int main(void){
 
 // Pasos para actualizar el proyecto de Git desde Visual Studio Code:
 // Cada que se haga un cambio, en la parte Izquierda de la pantalla, se puede ver una "rama" de git
-// Entonces, para publicarlo, solo tendrás que picarle en Commit, posteriórmente abrirá una ventana que dice 
+// Entonces, para publicarlo, solo tendrás que picarle en Commit, posteriórmente abrirá una ventana se llama COMMIT_EDITMSG
+// Solo escribe a, guarda el archivo "ctrl + s", cierra la ventana y se actualizará solo
