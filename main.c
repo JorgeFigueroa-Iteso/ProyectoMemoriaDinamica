@@ -77,4 +77,3 @@ int main(void){
 
 // Pasos para actualizar el proyecto de pc desde VisualStudio:
 // En la derecha, vsCode avisa al usuario que no tiene la última versión del repositorio, y es necesario actualizarlo con las indicaciones que se especifican
-// 
