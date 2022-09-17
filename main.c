@@ -71,7 +71,7 @@ int main(void){
 // Jalar los cambios de Git a pc:
 
 // Pasos para actualizar el proyecto de pc desde Sublime Text:
-
+// Solo es necesario escribir "Pull"
 
 // Pasos para actualizar el proyecto de pc desde VisualStudio:
 
