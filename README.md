@@ -41,5 +41,4 @@ Iniciar y salir del juego
 > Si lo copias, eres puto
 
 ## Estatus del proyecto
-Cada que pasemos de face, se actualizará este apartado
-Por lo que estaremos al tanto de los pasos que veremos
+Avance en la lógica del proyecto
