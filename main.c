@@ -60,8 +60,9 @@ int main(void){
 // Publicar cambios a GitHub:
 
 // Pasos para actualizar el proyecto de Git desde Sublime Text:
-// Es importante descargar antes la librería de Git, presionando ctrl + shift + p, después escribir Install Package, y posteriórmente buscar a la librería "GIT"
-// Primero es el Add All, después el Commit y por último el Push
+// Es importante descargar antes la librería de Git, presionando ctrl + shift + p, después escribir Install Package, y posteriórmente buscar a la librería "Git"
+// Para acceder al menú donde se puede modificar, actualizar y publicar el repositorio, se accede a través de: ctrl + shift + p, y escribir lo siguiente
+// Primero: Add All, después: Commit y por último el Push.
 
 // Pasos para actualizar el proyecto de Git desde Visual Studio Code:
 // Cada que se haga un cambio, en la parte Izquierda de la pantalla, se puede ver una "rama" de git
