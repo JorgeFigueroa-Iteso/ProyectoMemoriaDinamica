@@ -68,7 +68,7 @@ int main(void){
 // Solo escribe a, guarda el archivo "ctrl + s", cierra la ventana y darle en Sync Changes, para que se publiquen los datos a Git
 
 
-// Jalar los cambios de Git a pc:
+// Actualizar los cambios de Git a pc:
 
 // Pasos para actualizar el proyecto de pc desde Sublime Text:
 // Solo es necesario escribir "Pull"
