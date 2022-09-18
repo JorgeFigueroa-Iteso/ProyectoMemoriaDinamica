@@ -64,16 +64,8 @@ int main(void){
 // Para acceder al menú donde se puede modificar, actualizar y publicar el repositorio, se accede a través de: ctrl + shift + p, y escribir lo siguiente
 // Primero: Add All, después: Commit y por último el Push.
 
-// Pasos para actualizar el proyecto de Git desde Visual Studio Code:
-// Cada que se haga un cambio, en la parte Izquierda de la pantalla, se puede ver una "rama" de git
-// Entonces, para publicarlo, solo tendrás que picarle en Commit, posteriórmente abrirá una ventana se llama COMMIT_EDITMSG
-// Solo escribe a, guarda el archivo "ctrl + s", cierra la ventana y darle en Sync Changes, para que se publiquen los datos a Git
-
 
 // Actualizar los cambios de Git a pc:
 
 // Pasos para actualizar el proyecto de pc desde Sublime Text:
 // Solo es necesario escribir "Pull"
-
-// Pasos para actualizar el proyecto de pc desde VisualStudio:
-// En la derecha, vsCode avisa al usuario que no tiene la última versión del repositorio, y es necesario actualizarlo con las indicaciones que se especifican
