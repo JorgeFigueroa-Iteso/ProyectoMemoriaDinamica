@@ -66,7 +66,7 @@ int main(void){
 // Espacio para utilizar las estructuras y tipos de datos
 
 void mostrarMenu(){
-	system("cls");
+	// system("cls");
 	printf("a. Dimensión del tablero\n");
 	printf("b. Selección de dificultad\n");
 	printf("c. Iniciar Juego\n");
