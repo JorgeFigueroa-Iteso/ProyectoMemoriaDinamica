@@ -4,15 +4,15 @@
 
 // Comentarios*
 // Debe mostrar un menu principal, el cual muestre lo siguiente:
-// Dimensión del tablero
-// Selección de dificultad: - Didáctico - Fácil
+// Dimension del tablero
+// Seleccion de dificultad: - Didáctico - Fácil
 // Iniciar juego
 // Salir
 
 
 // --------------------------------------------------------------- //
 
-// Declaración de Tipos de Datos
+// Declaracion de Tipos de Datos
 
 void mostrarMenu();
 void dimensionTab();
@@ -22,14 +22,14 @@ void initJuego();
 
 // --------------------------------------------------------------- //
 
-// Declaración de Estructuras
+// Declaracion de Estructuras
 
 
 // --------------------------------------------------------------- //
 
 int main(void){
 
-	// Declración de variables
+	// Declracion de variables
 	int a = 0;
 	char op;
 
@@ -67,8 +67,8 @@ int main(void){
 
 void mostrarMenu(){
 	// system("cls");
-	printf("a. Dimensión del tablero\n");
-	printf("b. Selección de dificultad\n");
+	printf("a. Dimension del tablero\n");
+	printf("b. Seleccion de dificultad\n");
 	printf("c. Iniciar Juego\n");
 	printf("d. Salir\n");
 }
@@ -87,7 +87,7 @@ void selecDificult(){
 
 void initJuego(){
 	printf("Comienza el juego\n");
-	// Imprimir la configuración asignada para el juego
+	// Imprimir la configuracion asignada para el juego
 	system("pause");
 }
 
@@ -100,7 +100,7 @@ void initJuego(){
 // Publicar cambios a GitHub:
 
 // Pasos para actualizar el proyecto de Git desde Sublime Text:
-// Es importante descargar antes la librería de Git, presionando ctrl + shift + p, después escribir Install Package, y posteriórmente buscar a la librería "Git"
+// Es importante descargar antes la librería de Git, presionando ctrl + shift + p, después escribir Install Package, y posteriormente buscar a la librería "Git"
 // Para acceder al menú donde se puede modificar, actualizar y publicar el repositorio, se accede a través de: ctrl + shift + p, y escribir lo siguiente
 // Primero: Add All, después: Commit y por último el Push.
 
@@ -110,7 +110,7 @@ void initJuego(){
 // Pasos para actualizar el proyecto de pc desde Sublime Text:
 // Solo es necesario escribir "Pull"
 
-// Ejecución de perminal en SublimeText:
+// Ejecucion de perminal en SublimeText:
 
 // Para sacar la consola, presione alt + t
 // Para que la consola esté en la carpeta de trabajo, presione alt + c
