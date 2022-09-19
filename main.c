@@ -1,8 +1,9 @@
+// Main
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
 
-
+// Comentarios*
 // Debe mostrar un menu principal, el cual muestre lo siguiente:
 // Dimension del tablero
 // Seleccion de dificultad: - Didáctico - Fácil
