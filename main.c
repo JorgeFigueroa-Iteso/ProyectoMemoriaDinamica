@@ -20,7 +20,7 @@
 
 // Declaración de Estructuras
 
-
+void mostrarMenu();
 
 // --------------------------------------------------------------- //
 
@@ -28,20 +28,19 @@ int main(void){
 
 	// Declración de variables
 	int a = 0;
+	char op;
 
 	// Codigo para el juego
-
-
-	// Quitar el código de pueba
-	// --------------------------------------------------------------- //
-	for (int i = 0; i < 5; ++i)
+	setbuf(stdin, NULL);
+	setbuf(stdout, NULL);
+	do
 	{
-		printf("Esto es una prueba: %d\n", i+1);
-	}
-	// --------------------------------------------------------------- //
+		mostrarMenu();
+		printf("Seleccione una opción (a-d): \n");
+		scanf("%c", &op);
+	} while (op!='d');
 
-
-	// system("pause");
+	system("pause");
 	return 0;
 }
 
@@ -49,7 +48,13 @@ int main(void){
 
 // Espacio para utilizar las estructuras y tipos de datos
 
-
+void mostrarMenu(){
+	system("cls");
+	printf("a. Dimensión del tablero\n");
+	printf("b. Selección de dificultad\n");
+	printf("c. Iniciar Juego\n");
+	printf("d. Salir\n");
+}
 
 // --------------------------------------------------------------- //
 
@@ -69,4 +74,3 @@ int main(void){
 
 // Pasos para actualizar el proyecto de pc desde Sublime Text:
 // Solo es necesario escribir "Pull"
-
