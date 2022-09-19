@@ -18,6 +18,7 @@
 
 void mostrarMenu();
 void dimensionTab();
+void dimension(int *, int *);
 void selecDificult();
 void initJuego();
 
@@ -34,7 +35,6 @@ int main(void){
 	// Declracion de variables
 	int a = 0,x,y;
 	char op;
-	dimensionTab(x,y);
 
 	// Codigo para el juego
 	setbuf(stdin, NULL);
@@ -78,14 +78,32 @@ void mostrarMenu(){
 
 void dimensionTab(){
 	system("cls");
-	int x, y;
+	int X, Y;
 
 	printf("Dimensiones del tablero:\nx:  ");
-	scanf("%d", &x);
+	scanf("%d", &X);
 	printf("y: ");
-	scanf("%d", &y);
-	printf("Dimenciones asignadas: %d, %d\n", x,y);
+	scanf("%d", &Y);
+	// printf("Dimenciones asignadas: %d, %d\n", X,Y);
+	dimension(X,Y);
 	system("timeout /t 3\n");
+}
+
+void dimension(int *x, int *y){
+	printf("Dimecion Final: %d, %d\n", x,y);
+
+	char matriz[*x][*y];
+
+	for (int i = 0; i < *x; ++i)
+	{
+		for (int j = 0; j < *y; ++j)
+		{
+
+			printf("a%u\n");
+
+		}
+	}
+
 }
 
 void selecDificult(){
