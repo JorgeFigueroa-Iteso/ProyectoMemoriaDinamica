@@ -21,6 +21,7 @@
 // Declaración de Estructuras
 
 void mostrarMenu();
+void dimensionTab();
 
 // --------------------------------------------------------------- //
 
@@ -33,12 +34,24 @@ int main(void){
 	// Codigo para el juego
 	setbuf(stdin, NULL);
 	setbuf(stdout, NULL);
-	do
-	{
+	do{
 		mostrarMenu();
-		printf("Seleccione una opción (a-d): \n");
+		printf("Seleccione una opcion (a-d): \n");
 		scanf("%c", &op);
-	} while (op!='d');
+		switch(op){
+			case 'a':
+				printf("Selecciono la opcion a.\n");
+				dimensionTab();
+				break;
+			case 'b':
+				printf("Selecciono la opcion b.\n");
+				break;
+			case 'c':
+				printf("Selecciono la opcion c.\n");
+				break;
+		}
+
+	}while(op!='d');
 
 	system("pause");
 	return 0;
@@ -54,6 +67,10 @@ void mostrarMenu(){
 	printf("b. Selección de dificultad\n");
 	printf("c. Iniciar Juego\n");
 	printf("d. Salir\n");
+}
+
+void dimensionTab(){
+	printf("Ya termino.\n");
 }
 
 // --------------------------------------------------------------- //
