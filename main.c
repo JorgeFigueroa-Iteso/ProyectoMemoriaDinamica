@@ -1,4 +1,4 @@
-// Ramón
+// Joaquin
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -18,8 +18,10 @@
 
 void mostrarMenu();
 void dimensionTab();
+void dimension(int, int);
 void selecDificult();
 void initJuego();
+void boatdet(int, int);
 
 
 // --------------------------------------------------------------- //
@@ -32,7 +34,7 @@ void initJuego();
 int main(void){
 
 	// Declracion de variables
-	int a = 0;
+	int a = 0,x,y;
 	char op;
 
 	// Codigo para el juego
@@ -77,14 +79,35 @@ void mostrarMenu(){
 
 void dimensionTab(){
 	system("cls");
-	int x, y;
+	int X, Y;
 
-	printf("Dimensiones del tablero:\nx: ");
-	scanf("%d", &x);
+	printf("Dimensiones del tablero:\nx:  ");
+	scanf("%d", &X);
 	printf("y: ");
-	scanf("%d", &y);
-	printf("Dimenciones asignadas: %d, %d\n", x,y);
+	scanf("%d", &Y);
+	// printf("Dimenciones asignadas: %d, %d\n", X,Y);
+	dimension(X,Y);
 	system("timeout /t 3\n");
+}
+
+void dimension(int x, int y){
+	printf("Dimecion Final: %d, %d\n", x,y);
+
+	int matriz[x][y];
+	int *pMatriz;
+
+	for (int i = 0; i < x; ++i)
+	{
+		for (int j = 0; j < y; ++j)
+		{
+
+			*(*(matriz+i)+j) = 0;
+			printf("%d  ", *(*(matriz+i)+j));
+
+		}
+		printf("\n");
+	}
+
 }
 
 void selecDificult(){
@@ -105,7 +128,20 @@ void initJuego(){
 	system("cls");
 	printf("Comienza el juego\n");
 	// Imprimir la configuracion asignada para el juego
+
 	system("pause");
+}
+
+
+void boatdet(int **x, int **y){
+
+	dimension(x,y);
+	int *aux_1, *aux_2;
+	aux_1 = x;
+	aux_2 = y;
+	
+
+
 }
 
 // --------------------------------------------------------------- //
