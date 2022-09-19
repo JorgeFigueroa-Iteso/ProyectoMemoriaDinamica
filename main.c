@@ -77,16 +77,28 @@ void mostrarMenu(){
 
 void dimensionTab(){
 	system("cls");
-	printf("Dimensiones:\n");
-	system("pause");
+	int x, y;
+
+	printf("Dimensiones del tablero:\nx: ");
+	scanf("%d", &x);
+	printf("y: ");
+	scanf("%d", &y);
+	printf("Dimenciones asignadas: %d, %d\n", x,y);
+	system("timeout /t 5\n");
 }
 
 void selecDificult(){
 	system("cls");
+
+	int opDificultad;
+
 	// Didáctico - Ve el tablero de la pc
 	// Fácil - Solo se vé el tablero del jugador
-	printf("Dificultades:\n1.- Didactico\n2.- Facil\n");
-	system("pause");
+	printf("1.- Didactico\n2.- Facil\nDificultad: ");
+
+	scanf("%d", &opDificultad);
+	printf("Opcion seleccionada: %d\n", opDificultad);
+	system("timeout /t 5\n");
 }
 
 void initJuego(){
