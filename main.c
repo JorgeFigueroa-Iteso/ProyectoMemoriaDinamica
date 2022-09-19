@@ -70,7 +70,7 @@ void mostrarMenu(){
 }
 
 void dimensionTab(){
-	printf("Ya termino.\n");
+	printf("Dimensiones: \n");
 }
 
 // --------------------------------------------------------------- //
