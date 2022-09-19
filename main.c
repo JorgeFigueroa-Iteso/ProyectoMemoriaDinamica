@@ -135,7 +135,7 @@ void initJuego(){
 
 void boatdet(int **x, int **y){
 
-	dimensionTab(x,y);
+	dimension(x,y);
 	int *aux_1, *aux_2;
 	aux_1 = x;
 	aux_2 = y;
