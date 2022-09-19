@@ -14,16 +14,16 @@
 
 // Declaración de Tipos de Datos
 
+void mostrarMenu();
+void dimensionTab();
+void selecDificult();
+void initJuego();
 
 
 // --------------------------------------------------------------- //
 
 // Declaración de Estructuras
 
-void mostrarMenu();
-void dimensionTab();
-void selecDificult();
-void initJuego();
 
 // --------------------------------------------------------------- //
 
