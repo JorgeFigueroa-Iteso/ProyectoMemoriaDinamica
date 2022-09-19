@@ -8,6 +8,7 @@
 // Dimension del tablero
 // Seleccion de dificultad: - Didáctico - Fácil
 // Iniciar juego
+
 // Salir
 
 
