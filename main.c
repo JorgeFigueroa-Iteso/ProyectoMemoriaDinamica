@@ -32,8 +32,9 @@ void initJuego();
 int main(void){
 
 	// Declracion de variables
-	int a = 0;
+	int a = 0,x,y;
 	char op;
+	dimensionTab(x,y);
 
 	// Codigo para el juego
 	setbuf(stdin, NULL);
@@ -105,6 +106,7 @@ void initJuego(){
 	system("cls");
 	printf("Comienza el juego\n");
 	// Imprimir la configuracion asignada para el juego
+
 	system("pause");
 }
 
