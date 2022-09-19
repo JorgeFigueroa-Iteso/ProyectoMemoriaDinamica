@@ -75,17 +75,20 @@ void mostrarMenu(){
 
 void dimensionTab(){
 	printf("Dimensiones:\n");
+	system("pause");
 }
 
 void selecDificult(){
 	// Didáctico - Ve el tablero de la pc
 	// Fácil - Solo se vé el tablero del jugador
-	printf("Dificultades:\n1.- Didactico\n2.- Facil");
+	printf("Dificultades:\n1.- Didactico\n2.- Facil\n");
+	system("pause");
 }
 
 void initJuego(){
 	printf("Comienza el juego\n");
 	// Imprimir la configuración asignada para el juego
+	system("pause");
 }
 
 // --------------------------------------------------------------- //
