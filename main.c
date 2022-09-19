@@ -18,7 +18,7 @@
 
 void mostrarMenu();
 void dimensionTab();
-void dimension(int *, int *);
+void dimension(int, int);
 void selecDificult();
 void initJuego();
 
@@ -89,17 +89,17 @@ void dimensionTab(){
 	system("timeout /t 3\n");
 }
 
-void dimension(int *x, int *y){
+void dimension(int x, int y){
 	printf("Dimecion Final: %d, %d\n", x,y);
 
-	char matriz[*x][*y];
+	char matriz[x][y];
 
-	for (int i = 0; i < *x; ++i)
+	for (int i = 0; i < x; ++i)
 	{
-		for (int j = 0; j < *y; ++j)
+		for (int j = 0; j < y; ++j)
 		{
 
-			printf("a%u\n");
+			printf("a\n");
 
 		}
 	}
