@@ -3,7 +3,12 @@
 #include <stdlib.h>
 #include <string.h>
 
+<<<<<<< HEAD
 // Comentarios*:
+=======
+// Comentarios
+
+>>>>>>>º Ramon
 // Debe mostrar un menu principal, el cual muestre lo siguiente:
 // Dimension del tablero
 // Seleccion de dificultad: - Didáctico - Fácil
