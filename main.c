@@ -21,6 +21,7 @@ void dimensionTab();
 void dimension(int, int);
 void selecDificult();
 void initJuego();
+void boatdet(int, int);
 
 
 // --------------------------------------------------------------- //
@@ -129,6 +130,18 @@ void initJuego(){
 	// Imprimir la configuracion asignada para el juego
 
 	system("pause");
+}
+
+
+void boatdet(int **x, int **y){
+
+	dimensionTab(x,y);
+	int *aux_1, *aux_2;
+	aux_1 = x;
+	aux_2 = y;
+	
+
+
 }
 
 // --------------------------------------------------------------- //
