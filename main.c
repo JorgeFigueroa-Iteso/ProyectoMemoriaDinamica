@@ -66,7 +66,7 @@ int main(void){
 // Espacio para utilizar las estructuras y tipos de datos
 
 void mostrarMenu(){
-	// system("cls");
+	system("cls");
 	printf("a. Dimension del tablero\n");
 	printf("b. Seleccion de dificultad\n");
 	printf("c. Iniciar Juego\n");
@@ -74,11 +74,13 @@ void mostrarMenu(){
 }
 
 void dimensionTab(){
+	system("cls");
 	printf("Dimensiones:\n");
 	system("pause");
 }
 
 void selecDificult(){
+	system("cls");
 	// Didáctico - Ve el tablero de la pc
 	// Fácil - Solo se vé el tablero del jugador
 	printf("Dificultades:\n1.- Didactico\n2.- Facil\n");
@@ -86,6 +88,7 @@ void selecDificult(){
 }
 
 void initJuego(){
+	system("cls");
 	printf("Comienza el juego\n");
 	// Imprimir la configuracion asignada para el juego
 	system("pause");
