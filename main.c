@@ -84,7 +84,7 @@ void dimensionTab(){
 	printf("y: ");
 	scanf("%d", &y);
 	printf("Dimenciones asignadas: %d, %d\n", x,y);
-	system("timeout /t 5\n");
+	system("timeout /t 3\n");
 }
 
 void selecDificult(){
@@ -98,7 +98,7 @@ void selecDificult(){
 
 	scanf("%d", &opDificultad);
 	printf("Opcion seleccionada: %d\n", opDificultad);
-	system("timeout /t 5\n");
+	system("timeout /t 3\n");
 }
 
 void initJuego(){
