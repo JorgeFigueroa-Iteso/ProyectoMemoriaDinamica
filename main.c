@@ -9,7 +9,7 @@
 // Iniciar juego
 
 // Salir
-// Ya chuingamos Joaquiiiiiiiiin
+//ño
 
 
 // --------------------------------------------------------------- //
