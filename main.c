@@ -92,16 +92,19 @@ void dimensionTab(){
 void dimension(int x, int y){
 	printf("Dimecion Final: %d, %d\n", x,y);
 
-	char matriz[x][y];
+	int matriz[x][y];
+	int *pMatriz;
 
 	for (int i = 0; i < x; ++i)
 	{
 		for (int j = 0; j < y; ++j)
 		{
 
-			printf("a\n");
+			*(*(matriz+i)+j) = 0;
+			printf("%d  ", *(*(matriz+i)+j));
 
 		}
+		printf("\n");
 	}
 
 }
