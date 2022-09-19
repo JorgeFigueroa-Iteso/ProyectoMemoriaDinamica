@@ -2,7 +2,8 @@
 #include <stdlib.h>
 #include <string.h>
 
-// Comentarios*
+// Comentarios
+
 
 // Debe mostrar un menu principal, el cual muestre lo siguiente:
 // Dimension del tablero
