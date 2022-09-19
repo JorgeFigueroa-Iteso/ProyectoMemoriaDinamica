@@ -11,6 +11,13 @@
 // Iniciar juego
 // Salir
 
+// --------------------------------------------------------------- //
+
+// Globales
+
+int x,y;
+
+// --------------------------------------------------------------- //
 
 // --------------------------------------------------------------- //
 
@@ -21,7 +28,7 @@ void dimensionTab();
 void dimension(int, int);
 void selecDificult();
 void initJuego();
-void boatdet(int, int);
+// void boatdet(int, int);
 
 
 // --------------------------------------------------------------- //
@@ -34,7 +41,6 @@ void boatdet(int, int);
 int main(void){
 
 	// Declracion de variables
-	int a = 0,x,y;
 	char op;
 
 	// Codigo para el juego
@@ -93,16 +99,18 @@ void dimensionTab(){
 void dimension(int x, int y){
 	printf("Dimecion Final: %d, %d\n", x,y);
 
-	int matriz[x][y];
-	int *pMatriz;
+	int matrizUsuario[x][y];
+	int matrizPC[x][y];
+	int *pMatrizUsuario;
 
 	for (int i = 0; i < x; ++i)
 	{
 		for (int j = 0; j < y; ++j)
 		{
 
-			*(*(matriz+i)+j) = 0;
-			printf("%d  ", *(*(matriz+i)+j));
+			*(*(matrizUsuario+i)+j) = 0;
+			*(*(matrizPC+i)+j) = 0;
+			printf("%d  ", *(*(matrizUsuario+i)+j));
 
 		}
 		printf("\n");
@@ -133,16 +141,16 @@ void initJuego(){
 }
 
 
-void boatdet(int **x, int **y){
+// void boatdet(int **x, int **y){
 
-	dimension(x,y);
-	int *aux_1, *aux_2;
-	aux_1 = x;
-	aux_2 = y;
+// 	dimension(x,y);
+// 	int *aux_1, *aux_2;
+// 	aux_1 = x;
+// 	aux_2 = y;
 	
 
 
-}
+// }
 
 // --------------------------------------------------------------- //
 
