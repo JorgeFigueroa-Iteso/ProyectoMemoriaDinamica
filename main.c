@@ -91,3 +91,8 @@ void dimensionTab(){
 
 // Pasos para actualizar el proyecto de pc desde Sublime Text:
 // Solo es necesario escribir "Pull"
+
+// Ejecución de perminal en SublimeText:
+
+// Para sacar la consola, presione alt + t
+// Para que la consola esté en la carpeta de trabajo, presione alt + c
