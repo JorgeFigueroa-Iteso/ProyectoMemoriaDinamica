@@ -15,20 +15,27 @@
 
 // Globales
 
-int x,y;
+int Filas=10,Columnas=10;
+
 int matrizUsuario;
 
 // --------------------------------------------------------------- //
 
+#define usoCeldas 30
+#define modoDeJuego 0
+
 // --------------------------------------------------------------- //
 
 // Declaracion de Tipos de Datos
+
+void iniciarJuego(int *userX, int *userY, short *modo_de_juego);
 
 void mostrarMenu();
 void dimensionTab();
 void dimension(int, int);
 void selecDificult();
 void initJuego();
+void mostrarTablero(int, int);
 // void boatdet(int, int);
 
 
@@ -36,6 +43,9 @@ void initJuego();
 
 // Declaracion de Estructuras
 
+typedef struct{
+	int Filas,Columnas;
+} Tablero;
 
 // --------------------------------------------------------------- //
 
@@ -94,19 +104,20 @@ void dimensionTab(){
 	scanf("%d", &Y);
 	// printf("Dimenciones asignadas: %d, %d\n", X,Y);
 	dimension(X,Y);
+	// mostrarTablero(X,Y);
 	system("timeout /t 3\n");
 }
 
-void dimension(int x, int y){
-	printf("Dimecion Final: %d, %d\n", x,y);
+void dimension(int Filas, int Columnas){
+	printf("Dimecion Final: %d, %d\n", Filas,Columnas);
 
-	int matrizUsuario[x][y];
-	int matrizPC[x][y];
+	int matrizUsuario[Filas][Columnas];
+	int matrizPC[Filas][Columnas];
 	int *pMatrizUsuario;
 
-	for (int i = 0; i < x; ++i)
+	for (int i = 0; i < Filas; ++i)
 	{
-		for (int j = 0; j < y; ++j)
+		for (int j = 0; j < Columnas; ++j)
 		{
 
 			*(*(matrizUsuario+i)+j) = 0;
@@ -141,6 +152,19 @@ void initJuego(){
 	system("pause");
 }
 
+// void mostrarTablero(int x1, int Columnas1){
+// 	printf("%d, %d\n", x1,y1);
+// 	int matrizUsuario[][];
+
+// 	for (int i = 0; i < x1; ++i)
+// 	{
+// 		for (int j = 0; j < y1; ++j)
+// 		{
+// 			printf("%d  ", *(*(matrizUsuario+i)+j));
+// 		}
+// 		printf("\n");
+// 	}
+// }
 
 // void boatdet(int **x, int **y){
 
