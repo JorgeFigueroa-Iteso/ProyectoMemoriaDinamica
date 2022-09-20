@@ -87,7 +87,7 @@ void dimensionTab(){
 	system("cls");
 	int X, Y;
 
-	printf("Dimensiones del tablero:\nx:  ");
+	printf("Dimensiones del tablero:\nx: ");
 	scanf("%d", &X);
 	printf("y: ");
 	scanf("%d", &Y);
