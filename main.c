@@ -29,6 +29,8 @@ int matrizUsuario;
 // Declaracion de Tipos de Datos
 
 void iniciarJuego(int *userX, int *userY, short *modo_de_juego);
+void boardInit(char (*board)[], int *x, int *y);
+void drawBoard(char (*board)[], int *x, int *y);
 
 void mostrarMenu();
 void dimensionTab();
@@ -43,9 +45,17 @@ void mostrarTablero(int, int);
 
 // Declaracion de Estructuras
 
-typedef struct{
-	int Filas,Columnas;
-} Tablero;
+typedef struct celda{
+	short estado_de_cenda;
+	int id_barco;
+	short golpe;
+}celda;
+
+typedef struct barco{
+	char tipo_de_barco[3];
+	char orientacion;
+	short a_flote;
+}barco;
 
 // --------------------------------------------------------------- //
 
@@ -53,6 +63,7 @@ int main(void){
 
 	// Declracion de variables
 	char op;
+	char user;
 
 	// Codigo para el juego
 	setbuf(stdin, NULL);
@@ -74,6 +85,9 @@ int main(void){
 				initJuego();
 				printf("Selecciono la opcion c.\n");
 				break;
+			case 'z':
+				boardInit(user, 10, 10);
+				drawBoard();
 		}
 
 	}while(op!='d');
@@ -85,6 +99,67 @@ int main(void){
 // --------------------------------------------------------------- //
 
 // Espacio para utilizar las estructuras y tipos de datos
+
+void iniciarJuego(int *userX, int *userY, short *modo_de_juego){
+	if (userX && userY != 0){
+		Filas = *userX;
+		Columnas = *userY;
+		char board[Filas][Columnas];
+		boardInit(board, userX, userY);
+		drawBoard(board, userX, userY);
+	} else{
+		char board[Filas][Columnas];
+		boardInit(board, userX, userY);
+		drawBoard(board, userX, userY);
+	}
+}
+
+void boardInit(char (*board)[Columnas], int *x, int *y){
+	for (int i = 0; i < (*y); ++i)
+	{
+		for (int j = 0; j < (*x); ++j)
+		{
+			*(*(board+i)+j) = ' ';
+		}
+	}
+}
+
+void drawBoard(char (*board)[Columnas], int *x, int *y){
+	printf("\n | B-S");
+	for (int k = 0; k < (*x); ++k)
+	{
+		printf("| %c ", ('A'+k));
+	}
+	printf("|\n");
+
+	printf("------");
+	for (int k = 0; k < (*x); ++k)
+	{
+		printf("----");
+	}
+	printf("\n");
+
+	for (int i = 0; i < (*y); ++i)
+	{
+		printf("| %.3d\n", i+1);
+		for (int j = 0; j < (*x); ++j)
+		{
+			printf("| %c\n", *(*(board+i)+j));
+		}
+		printf("|\n");
+
+		printf("------");
+		for (int k = 0; k < (*x); ++k)
+		{
+			printf("-----");
+		}
+		printf("\n");
+	}
+}
+
+
+
+
 
 void mostrarMenu(){
 	system("cls");
