@@ -64,6 +64,7 @@ int main(void){
 	// Declracion de variables
 	char op;
 	char user;
+	
 
 	// Codigo para el juego
 	setbuf(stdin, NULL);
