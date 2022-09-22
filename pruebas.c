@@ -35,10 +35,10 @@ Bungalo - 0 :)
 
 */
 
-void iniciarTabla (CELDA matrix[SIZE][SIZE], CELDA matrixBot[SIZE][SIZE], int row, int column);
+void iniciarTabla (CELDA matrix[SIZE][SIZE], CELDA matrixBot[SIZE][SIZE], 
+					int row, int column);
 void iniciarJuego (CELDA matrix[SIZE][SIZE], CELDA matrixBot[SIZE][SIZE], 
-					int row, int column, int dif
-					);
+					int row, int column, int dif, int coordx, int coordy, int turno);
 void hacerBarco (NAVE barcoUsuario, NAVE barcoBot, int x, int y);
 
 // void print (char matrix[SIZE][SIZE], char matrixBot[SIZE][SIZE], int row, int column);
@@ -46,7 +46,8 @@ void hacerBarco (NAVE barcoUsuario, NAVE barcoBot, int x, int y);
 void printUser (CELDA matrix[SIZE][SIZE], int row, int column);
 void printBot  (CELDA matrixBot[SIZE][SIZE], int row, int column);
 
-void bombardeo (CELDA matrix[SIZE][SIZE], int row, int column);
+void bombardeoAUsuario (CELDA matrix[SIZE][SIZE], int row, int column);
+void bombardeoABot (CELDA matrixBot[SIZE][SIZE], int row, int column);
 
 // void celda(char matrix[SIZE][SIZE], char matrixBot[SIZE][SIZE]);
 
@@ -63,6 +64,9 @@ int main (){
 
     int row=10, col=10, x, y;
     int dif=1;
+    int cambio = 0;
+	
+	int coordx, coordy;
 
     printf ("Input data: \n");
 
@@ -96,8 +100,20 @@ int main (){
 				break;
 			case 'c':
 		    	iniciarTabla(userMatrix, botMatrix, row, col);
-		    	iniciarJuego(userMatrix, botMatrix, row, col, dif);
-		    	
+		    	// bombardeoAUsuario(userMatrix, coordx, coordy);
+
+		    	iniciarJuego(userMatrix, botMatrix, row, col, dif, coordx, coordy, cambio);
+
+				break;
+
+			case 'z':
+				printf("Coordenadas a atacar:\nx:");
+				scanf("%d", &coordx);
+				printf("y:");
+				scanf("%d", &coordy);
+				
+
+				system("timeout /t 3");
 				break;
 		}
 	}while(op!='d');
@@ -114,8 +130,8 @@ void iniciarTabla (CELDA matrix[SIZE][SIZE], CELDA matrixBot[SIZE][SIZE], int ro
     	celda=*(matrix+i);
         for (j = 0; j < column; j++){
         	(celda+j) -> estadoCelda=0;
-        	(celda+j) -> idBarco=1;
-        	(celda+j) -> impactoBarco=2;
+        	(celda+j) -> idBarco=0;
+        	(celda+j) -> impactoBarco=0;
         	// *(*(matrix+i)+j) == 0;
         }
     }
@@ -124,8 +140,8 @@ void iniciarTabla (CELDA matrix[SIZE][SIZE], CELDA matrixBot[SIZE][SIZE], int ro
     	celda=*(matrixBot);
         for (j = 0; j < column; j++){
         	(celda+j) -> estadoCelda=0;
-        	(celda+j) -> idBarco=1;
-        	(celda+j) -> impactoBarco=2;
+        	(celda+j) -> idBarco=0;
+        	(celda+j) -> impactoBarco=0;
         	// *(*(matrixBot+i)+j) == 0;
         }
     }
@@ -167,7 +183,8 @@ void printUser (CELDA matrix[SIZE][SIZE], int row, int column){
         for(int j=0; j<column; j++){
 
             // printf("%d ", matrix[i][j]);
-            printf("%d", ((celda+j) -> estadoCelda));
+            // printf("%d ", ((celda+j) -> estadoCelda));
+            printf("%d ", ((celda+j) -> impactoBarco));
         }
         printf("\n");
     }
@@ -181,7 +198,8 @@ void printBot (CELDA matrixBot[SIZE][SIZE], int row, int column){
         for(int j=0; j<column; j++){
 
             // printf("%d ", matrix[i][j]);
-            printf("%d ", ((celda+j) -> estadoCelda));
+            // printf("%d ", ((celda+j) -> estadoCelda));
+            printf("%d ", ((celda+j) -> impactoBarco));
         }
         printf("\n");
     }
@@ -225,30 +243,79 @@ void mostrarMenu(int x, int y, int dif){
 
 // Juego
 
-void bombardeo (CELDA matrix[SIZE][SIZE], int row, int column){
+void bombardeoAUsuario (CELDA matrix[SIZE][SIZE], int row, int column){
 
+	srand(time(NULL));
+    int x, y;
+    x = rand() % 9;
+    y = rand() % 9;
+    printf("%d\n%d\n", x+1,y+1);
+
+	CELDA *celda;
+
+	celda=*(matrix+y);
+
+	if (((celda+x) -> impactoBarco) == 0)
+	{
+		printf("Se registro un golpe por parte del bot.\n");
+		(celda+x) -> impactoBarco=1;
+	}
+
+	// printf("%d\n", ((celda+x) -> impactoBarco));
+
+	system("timeout /t 5");
+}
+
+void bombardeoABot (CELDA matrixBot[SIZE][SIZE], int x, int y){
+	CELDA *celda;
+
+	celda=*(matrixBot+x);
+
+	(celda+y) -> impactoBarco=1;
+
+	printf("%d\n", ((celda+y) -> impactoBarco));
+
+	system("timeout /t 3");
 }
 
 void iniciarJuego(CELDA matrix[SIZE][SIZE], CELDA matrixBot[SIZE][SIZE], 
-					int row, int col, int dif){
+					int row, int col, int dif, int coordx, int coordy, int turno){
 	switch (dif){
+
 		case 1:
 			printf("Dificultad 1\n");
 
+			do{
+				printUser (matrix, row, col);
+				printBot (matrixBot, row, col);
+
+				printf("\n\n---Coordenadas a atacar---\nx: ");
+				scanf("%d", &coordx);
+				printf("y: ");
+				scanf("%d", &coordy);
+
+				bombardeoABot(matrixBot, coordx-1, coordy-1);
+				printf("Turnos: %d\n", turno);
+				turno++;
+
+			} while (turno!=3);
+
+			bombardeoAUsuario(matrix, row, col);
 
 			printUser (matrix, row, col);
 			printBot (matrixBot, row, col);
 
+			
+			// printBot (matrixBot, row, col);
+
 			break;
+
 		case 2:
 			printf("Dificultad 2\n");
 			printUser (matrix, row, col);			
 
 			break;
-		case 3:
-			
 
-			break;
 		default:
 			printf("La dificultad no coincide, pruebe de nuevo.\n");
 			break;

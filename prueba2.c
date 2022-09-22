@@ -1,18 +1,14 @@
-#include<stdio.h>  
-#include<stdlib.h>  
-     
-int main()  
-{  
-     
-    int i;  
-     
-    printf("10 Random Numbers =>\n");      
-         
-    for(i=0;i<10;i++)  
-    {  
-        printf("%d ",(rand() %100) + 1);  
-    }  
-     
-    printf("\n");  
+#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
+
+int main()
+
+{
+	srand(time(NULL));
+    int x, y;
+    x = rand() % 10;
+    y = rand() % 10;
+    printf("%d\n%d\n", x,y);
     return 0;
 }
