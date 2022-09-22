@@ -46,6 +46,8 @@ void hacerBarco (NAVE barcoUsuario, NAVE barcoBot, int x, int y);
 void printUser (CELDA matrix[SIZE][SIZE], int row, int column);
 void printBot  (CELDA matrixBot[SIZE][SIZE], int row, int column);
 
+void bombardeo (CELDA matrix[SIZE][SIZE], int row, int column);
+
 // void celda(char matrix[SIZE][SIZE], char matrixBot[SIZE][SIZE]);
 
 void mostrarMenu(int, int, int);
@@ -223,6 +225,10 @@ void mostrarMenu(int x, int y, int dif){
 
 // Juego
 
+void bombardeo (CELDA matrix[SIZE][SIZE], int row, int column){
+
+}
+
 void iniciarJuego(CELDA matrix[SIZE][SIZE], CELDA matrixBot[SIZE][SIZE], 
 					int row, int col, int dif){
 	switch (dif){
@@ -239,6 +245,10 @@ void iniciarJuego(CELDA matrix[SIZE][SIZE], CELDA matrixBot[SIZE][SIZE],
 			printUser (matrix, row, col);			
 
 			break;
+		case 3:
+			
+
+			break;
 		default:
 			printf("La dificultad no coincide, pruebe de nuevo.\n");
 			break;
@@ -246,5 +256,7 @@ void iniciarJuego(CELDA matrix[SIZE][SIZE], CELDA matrixBot[SIZE][SIZE],
 
 	system("timeout /t 3\n");
 }
+
+
 
 /*-----------------------------------------------------------------*/
