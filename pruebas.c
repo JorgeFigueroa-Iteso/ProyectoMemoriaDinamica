@@ -3,15 +3,47 @@
 
 #define SIZE 100
 
-void iniciarTabla (char matrix[SIZE][SIZE], char matrixBot[SIZE][SIZE], int row, int column);
-void iniciarJuego(char matrix[SIZE][SIZE], char matrixBot[SIZE][SIZE], 
+/*
+#define P 5
+#define B 4
+#define S 3
+#define C 2
+#define L 1
+*/
+
+typedef struct{
+	int estadoCelda;
+	int idBarco;
+	int impactoBarco;
+}CELDA;
+
+typedef struct{
+	char tipoBarco;
+	char orientacionBarco;
+	int sunk;
+}NAVE;
+
+/*
+
+Portaviones - 5
+Buque - 4
+Submarino - 3
+Crucero - 2
+Lancha - 1
+Bungalo - 0 :)
+
+*/
+
+void iniciarTabla (CELDA matrix[SIZE][SIZE], CELDA matrixBot[SIZE][SIZE], int row, int column);
+void iniciarJuego (CELDA matrix[SIZE][SIZE], CELDA matrixBot[SIZE][SIZE], 
 					int row, int column, int dif
 					);
+void hacerBarco (NAVE barco);
 
 // void print (char matrix[SIZE][SIZE], char matrixBot[SIZE][SIZE], int row, int column);
 
-void printUser (char matrix[SIZE][SIZE], int row, int column);
-void printBot(char matrixBot[SIZE][SIZE], int row, int column);
+void printUser (CELDA matrix[SIZE][SIZE], int row, int column);
+void printBot  (CELDA matrixBot[SIZE][SIZE], int row, int column);
 
 // void celda(char matrix[SIZE][SIZE], char matrixBot[SIZE][SIZE]);
 
@@ -22,11 +54,11 @@ int main (){
 	setbuf(stdin, NULL);
 	setbuf(stdout, NULL);
 
-    char userMatrix[SIZE][SIZE];
-    char botMatrix[SIZE][SIZE];
+    CELDA userMatrix[SIZE][SIZE];
+    CELDA botMatrix[SIZE][SIZE];
     char op;
 
-    int row=15, col=15, x, y;
+    int row=10, col=10, x, y;
     int dif=1;
 
     printf ("Input data: \n");
@@ -70,22 +102,28 @@ int main (){
     return 0;
 }
 
-void iniciarTabla (char matrix[SIZE][SIZE], char matrixBot[SIZE][SIZE], int row, int column){
+void iniciarTabla (CELDA matrix[SIZE][SIZE], CELDA matrixBot[SIZE][SIZE], int row, int column){
     int i, j;
 
-    for (i = 0; i < row; i++)
-    {
-        for (j = 0; j < column; j++)
-        {
-        	*(*(matrix+i)+j) == 0;
+    CELDA *celda;
+
+    for (i = 0; i < row; i++){
+    	celda=*(matrix+i);
+        for (j = 0; j < column; j++){
+        	(celda+j) -> estadoCelda=0;
+        	(celda+j) -> idBarco=1;
+        	(celda+j) -> impactoBarco=2;
+        	// *(*(matrix+i)+j) == 0;
         }
     }
 
-    for (i = 0; i < row; i++)
-    {
-        for (j = 0; j < column; j++)
-        {
-        	*(*(matrixBot+i)+j) == 0;
+    for (i = 0; i < row; i++){
+    	celda=*(matrixBot);
+        for (j = 0; j < column; j++){
+        	(celda+j) -> estadoCelda=0;
+        	(celda+j) -> idBarco=1;
+        	(celda+j) -> impactoBarco=2;
+        	// *(*(matrixBot+i)+j) == 0;
         }
     }
 }
@@ -118,27 +156,29 @@ void print (char matrix[SIZE][SIZE], char matrixBot[SIZE][SIZE], int row, int co
     system("timeout /t 3\n");
 }
 */
-void printUser (char matrix[SIZE][SIZE], int row, int column){
+void printUser (CELDA matrix[SIZE][SIZE], int row, int column){
 	printf("--Matriz Usuario--\n");
-    for(int i=0; i<row; i++)
-    {
-        for(int j=0; j<column; j++)
-        {
+	CELDA *celda;
+    for(int i=0; i<row; i++){
+    	celda=*(matrix+i);
+        for(int j=0; j<column; j++){
+
             // printf("%d ", matrix[i][j]);
-            printf("%d ", *(*(matrix+i)+j));
+            printf(" %d , %d , %d", ((celda+j) -> estadoCelda));
         }
         printf("\n");
     }
 }
 
-void printBot (char matrixBot[SIZE][SIZE], int row, int column){
+void printBot (CELDA matrixBot[SIZE][SIZE], int row, int column){
 	printf("--Matriz Maquina--\n");
-    for(int i=0; i<row; i++)
-    {
-        for(int j=0; j<column; j++)
-        {
+	CELDA *celda;
+    for(int i=0; i<row; i++){
+    	celda=*(matrixBot+i);
+        for(int j=0; j<column; j++){
+
             // printf("%d ", matrix[i][j]);
-            printf("%d ", *(*(matrixBot+i)+j));
+            printf("%d ", ((celda+j) -> estadoCelda));
         }
         printf("\n");
     }
@@ -182,7 +222,7 @@ void mostrarMenu(int x, int y, int dif){
 
 // Juego
 
-void iniciarJuego(char matrix[SIZE][SIZE], char matrixBot[SIZE][SIZE], 
+void iniciarJuego(CELDA matrix[SIZE][SIZE], CELDA matrixBot[SIZE][SIZE], 
 					int row, int col, int dif){
 	switch (dif){
 		case 1:
