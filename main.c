@@ -275,4 +275,4 @@ void initJuego(){
 // Ejecucion de perminal en SublimeText:
 
 // Para sacar la consola, presione alt + t
-// Para que la consola esté en la carpeta de trabajo, presione alt + c
+// Para que la consola esté en la carpeta de trabajo, presione alt + ca
