@@ -325,7 +325,7 @@ void hacerBarco (NAVE barcoUsuario[SIZE][SIZE], NAVE barcoBot[SIZE][SIZE],
         celda=*(matrixBot+cordy);
         (celda+cordx) -> idBarco=x;
         ec = x;
-        (celda+cordx) -> estadoCelda='a';
+        (celda+cordx) -> estadoCelda=(char)(x + '0');
 
         // printf("%d\n", x);
 
