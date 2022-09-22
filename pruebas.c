@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <time.h>
 
 #define SIZE 100
 
@@ -38,7 +39,7 @@ void iniciarTabla (CELDA matrix[SIZE][SIZE], CELDA matrixBot[SIZE][SIZE], int ro
 void iniciarJuego (CELDA matrix[SIZE][SIZE], CELDA matrixBot[SIZE][SIZE], 
 					int row, int column, int dif
 					);
-void hacerBarco (NAVE barco);
+void hacerBarco (NAVE barcoUsuario, NAVE barcoBot, int x, int y);
 
 // void print (char matrix[SIZE][SIZE], char matrixBot[SIZE][SIZE], int row, int column);
 
@@ -164,7 +165,7 @@ void printUser (CELDA matrix[SIZE][SIZE], int row, int column){
         for(int j=0; j<column; j++){
 
             // printf("%d ", matrix[i][j]);
-            printf(" %d , %d , %d", ((celda+j) -> estadoCelda));
+            printf("%d", ((celda+j) -> estadoCelda));
         }
         printf("\n");
     }
@@ -227,6 +228,8 @@ void iniciarJuego(CELDA matrix[SIZE][SIZE], CELDA matrixBot[SIZE][SIZE],
 	switch (dif){
 		case 1:
 			printf("Dificultad 1\n");
+
+
 			printUser (matrix, row, col);
 			printBot (matrixBot, row, col);
 
