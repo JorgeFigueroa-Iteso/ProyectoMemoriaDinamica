@@ -7,8 +7,8 @@ int main()
 {
 	srand(time(NULL));
     int x, y;
-    x = rand() % 10;
-    y = rand() % 10;
-    printf("%d\n%d\n", x,y);
+    x = rand() % 2;
+    // y = rand() % 10;
+    printf("%d\n%d\n", x);
     return 0;
 }
