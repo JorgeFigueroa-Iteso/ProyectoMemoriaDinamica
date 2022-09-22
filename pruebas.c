@@ -26,20 +26,25 @@ typedef struct{
 
 /*
 
-Portaviones - 5
-Buque - 4
-Submarino - 3
-Crucero - 2
-Lancha - 1
+Portaviones - 5 id - 21
+Buque - 4 id - 22
+Submarino - 3 - id - 23
+Crucero - 2 - id - 24
+Lancha - 1 - id - 25
 Bungalo - 0 :)
 
 */
+void mostrarMenu(int, int, int);
+void mostrarBarco();
 
 void iniciarTabla (CELDA matrix[SIZE][SIZE], CELDA matrixBot[SIZE][SIZE], 
 					int row, int column);
 void iniciarJuego (CELDA matrix[SIZE][SIZE], CELDA matrixBot[SIZE][SIZE], 
 					int row, int column, int dif, int coordx, int coordy, int turno);
 void hacerBarco (NAVE barcoUsuario, NAVE barcoBot, int x, int y);
+
+void sortBoats(CELDA matrix[SIZE][SIZE], CELDA matrixBot[SIZE][SIZE], 
+					int row, int column, int dif, int coordx, int coordy, int turno)
 
 // void print (char matrix[SIZE][SIZE], char matrixBot[SIZE][SIZE], int row, int column);
 
@@ -51,7 +56,6 @@ void bombardeoABot (CELDA matrixBot[SIZE][SIZE], int row, int column);
 
 // void celda(char matrix[SIZE][SIZE], char matrixBot[SIZE][SIZE]);
 
-void mostrarMenu(int, int, int);
 
 int main (){
 
@@ -72,6 +76,7 @@ int main (){
 
     do{
 		system("cls");
+		mostrarBarco();
 		mostrarMenu(row, col, dif);
 		// printf("Seleccione una opcion (a-e): \n");
 		scanf("%c", &op);
@@ -231,11 +236,55 @@ void celda (char matrix[SIZE][SIZE], char matrixBot[SIZE][SIZE]){
 */
 
 void mostrarMenu(int x, int y, int dif){
-	system("cls");
 	printf("a. Dimension del tablero - %dx%d\n", x,y);
 	printf("b. Seleccion de dificultad - %d\n", dif);
 	printf("c. Iniciar Juego\n");
 	printf("d. Salir\n");
+}
+
+void mostrarBarco(){
+	srand(time(NULL));
+    int x;
+    x = rand() % 2;
+    // printf("%d\n", x);
+    switch(x){
+    	case 0:
+			printf("                                             .\n");
+			printf("                           .                 |\n");
+			printf("                           +                 |\n");
+			printf("                  .        |                *+W+-*\n");
+			printf("     .           +y        +W+              . H                 .\n");
+			printf("  .  +y            |I.   y  |               ! H= .           .  ^\n");
+			printf("  !   \\     .     |H '. /   |  ___.        .! H  !   +--.--y !  V\n");
+			printf("  !    \\     \\  +=|H|=='.=+ | |====\\   _  '_H_H__H_. H_/=  J !  !\n");
+			printf(". !     \'    VVV_HHH_/__'._H |  E  \\_|=|_|========|_|==|____H. ! _______.\n");
+			printf("I-H_I=I=HH_==_|I_IIIII_I_I_=HH|======.I-I-I-=======-I=I=I=I_=H|=H'===I=I/\n");
+			printf("\\                                                                      ,\n");
+			printf(" |                                                                    /\n");
+			printf(" .___________________________________________________________________'\n\n\n\n");
+			break;
+		case 1:
+			printf("                       $o\n");
+			printf("                       $                     .........\n");
+			printf("                      $$$      .oo..     'oooo'oooo'ooooooooo....\n");
+			printf("                       $       $$$$$$$\n");
+			printf("                   .ooooooo.   $$!!!!!\n");
+			printf("                 .'.........'. $$!!!!!      o$$oo.   ...oo,oooo,oooo'ooo''\n");
+			printf("    $          .o'  oooooo   '.$$!!!!!      $$!!!!!       'oo''oooo''\n");
+			printf(" ..o$ooo...    $                '!!''!.     $$!!!!!\n");
+			printf(" $    ..  '''oo$$$$$$$$$$$$$.    '    'oo.  $$!!!!!\n");
+			printf(" !.......      '''..$$ $$ $$$   ..        '.$$!!''!\n");
+			printf(" !!$$$!!!!!!!!oooo......   '''  $$ $$ :o           'oo.\n");
+			printf(" !!$$$!!!$$!$$!!!!!!!!!!oo.....     ' ''  o$$o .      ''oo..\n");
+			printf(" !!!$$!!!!!!!!!!!!!!!!!!!!!!!!!!!!ooooo..      'o  oo..    $\n");
+			printf("  '!!$$!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!oooooo..  ''   ,$\n");
+			printf("   '!!$!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!oooo..$$\n");
+			printf("    !!$!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!$'\n");
+			printf("    '$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$!!!!!!!!!!!!!!!!!!,\n");
+			printf(".....$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$.....\n\n\n\n");
+    }
+
+
 }
 
 
@@ -322,6 +371,55 @@ void iniciarJuego(CELDA matrix[SIZE][SIZE], CELDA matrixBot[SIZE][SIZE],
 	}
 
 	system("timeout /t 3\n");
+}
+
+void sortBoats(CELDA matrix[SIZE][SIZE], CELDA matrixBot[SIZE][SIZE], 
+					int row, int col, int dif, int coordx, int coordy, int turno){
+
+	 for(int i=0; i<row; i++)
+    {
+        for(int j=0; j<col; j++)
+        {
+           srand(time(NULL));
+           int x = rand() % 6 + 21;
+           switch(x){
+           	case 21:
+           		break;
+           	case 22:
+           		break;
+           	case 23:
+           		break;
+           	case 24:
+           		break;
+           	case 25:
+           		break;
+           }
+        }
+        printf("\n");
+    }
+    printf("--Matriz 2--\n");
+    for(int i=0; i<row; i++)
+    {
+        for(int j=0; j<col; j++)
+        {
+            srand(time(NULL));
+           int x = rand() % 6 + 21;
+           switch(x){
+           	case 21:
+           		break;
+           	case 22:
+           		break;
+           	case 23:
+           		break;
+           	case 24:
+           		break;
+           	case 25:
+           		break;
+           }
+        }
+        printf("\n");
+    }
+
 }
 
 
