@@ -190,8 +190,14 @@ void printUser (CELDA matrix[SIZE][SIZE], int row, int column){
     	printf("%2d |", i+1);
         for(int j=0; j<column; j++){
 
-            printf(" %2c ", ((celda+j) -> estadoCelda));
+            // printf(" %2c ", ((celda+j) -> estadoCelda));
             // printf("%d ", ((celda+j) -> impactoBarco));
+            if (((celda+j) -> idBarco) != 0)
+            {
+            	printf(" %-2d ", ((celda+j) -> idBarco));
+            } else{
+            	printf("    ");
+            }
             // printf(" %2d ", ((celda+j) -> idBarco));
             // printf("%d ", ((celda+j) -> tipoDeBarco));
         }
@@ -222,8 +228,14 @@ void printBot (CELDA matrixBot[SIZE][SIZE], int row, int column){
     	printf("%2d |", i+1);
         for(int j=0; j<column; j++){
             // printf("%d ", matrix[i][j]);
-            printf(" %2c ", ((celda+j) -> estadoCelda));
+            // printf(" %2c ", ((celda+j) -> estadoCelda));
             // printf("%d ", ((celda+j) -> impactoBarco));
+            if (((celda+j) -> idBarco) != 0)
+            {
+            	printf(" %-2d ", ((celda+j) -> idBarco));
+            } else{
+            	printf("    ");
+            }
             // printf(" %2d ", ((celda+j) -> idBarco));
             // printf("%d ", ((celda+j) -> tipoDeBarco));
         }
