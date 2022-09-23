@@ -20,7 +20,7 @@ typedef struct{
 
 typedef struct{
 	int tipoBarco;
-	int orientacionBarco;
+	char orientacionBarco;
 	int sunk;
 }NAVE;
 
@@ -153,7 +153,7 @@ void iniciarTabla (CELDA matrix[SIZE][SIZE], CELDA matrixBot[SIZE][SIZE],
         	// (celda+j) -> tipoDeBarco=0;
         	// *(*(matrix+i)+j) == 0;
         	(nave+j) -> tipoBarco=0;
-        	(nave+j) -> orientacionBarco=0;
+        	(nave+j) -> orientacionBarco='V';
         	(nave+j) -> sunk=0;
         }
     }
@@ -168,7 +168,7 @@ void iniciarTabla (CELDA matrix[SIZE][SIZE], CELDA matrixBot[SIZE][SIZE],
         	// (celda+j) -> tipoDeBarco=0;
         	// *(*(matrixBot+i)+j) == 0;
         	(nave+j) -> tipoBarco=0;
-        	(nave+j) -> orientacionBarco=0;
+        	(nave+j) -> orientacionBarco='V';
         	(nave+j) -> sunk=0;
         }
     }
@@ -389,7 +389,23 @@ void hacerBarco (NAVE barcosDeUsuario[SIZE][SIZE], NAVE barcoBot[SIZE][SIZE],
         (celda+cordx) -> estadoCelda=(char)(i+'0');
         // Asignación de tipo de barco, orientacion, y estado en estructura tipo NAVE
 
+        switch((nave+cordx) -> tipoBarco){
+        	case 'H':
+        		for (int k = 0; k < x-1; ++k)
+        		{
+        			if ((nave+cordx)->tipoBarco==0)
+        			{
+        				(nave+cordx)->tipoBarco=x;
+        			} else{
+        				(nave+cordx)->tipoBarco=0;
+        				break;
+        			}
+        		}
+        		break;
+        	default:
 
+        		break;
+        }
 
         // printf("%d\n", x);
         j++;
