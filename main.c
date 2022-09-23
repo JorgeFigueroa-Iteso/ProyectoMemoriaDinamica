@@ -48,8 +48,6 @@ void hacerBarco (NAVE barcosDeUsuario[SIZE][SIZE], NAVE barcoBot[SIZE][SIZE],
 				CELDA matrix[SIZE][SIZE], CELDA matrixBot[SIZE][SIZE],
 				int xt, int yt);
 
-void print (NAVE barcosDeBot[SIZE][SIZE]);
-
 void printUser (CELDA matrix[SIZE][SIZE], NAVE barcosDeUsuario[SIZE][SIZE], int row, int column);
 void printBot  (CELDA matrixBot[SIZE][SIZE], NAVE barcosDeBot[SIZE][SIZE], int row, int column);
 
@@ -363,20 +361,19 @@ void hacerBarco (NAVE barcosDeUsuario[SIZE][SIZE], NAVE barcoBot[SIZE][SIZE],
         x = (rand() % (5 - 1 + 1))+1;
 
         // Coordenadas aleatorias
-        cordx = (rand() % (((row-4)-1) - 0 + 1))+0;
-        cordy = (rand() % (((row-4)-1) - 0 + 1))+0;
+        cordx = (rand() % (((row-5)-1) - 0 + 1))+0;
+        cordy = (rand() % (((row-2)-1) - 0 + 1))+0;
 
         // Apuntador a la coordenada "x"
         celda=*(matrix+cordy);
     	nave =*(barcosDeUsuario+cordy);
 
         // Comprueba si la celda ya está en uso
-        if (((celda+cordx) -> idBarco) != 0)
-        {
-        	printf("Recalculando... %d\nCoordenadas: %d, %d", ((celda+cordx) -> idBarco), cordx, cordy);
-        	cordx = (rand() % (((row-4)-1) - 0 + 1))+0;
-        	cordy = (rand() % (((row-4)-1) - 0 + 1))+0;
-        }
+		while(((celda+cordx) -> idBarco) != 0){
+			printf("Recalculando... %d\nCoordenadas: %d, %d", ((celda+cordx) -> idBarco), cordx, cordy);
+			cordx = (rand() % (((row-5)-1) - 0 + 1))+0;
+			cordy = (rand() % (((row-2)-1) - 0 + 1))+0;
+		}
 
         // Asigna el id y tipo de barco a la celda
     	(nave+cordx) -> tipoBarco = x;
@@ -384,28 +381,47 @@ void hacerBarco (NAVE barcosDeUsuario[SIZE][SIZE], NAVE barcoBot[SIZE][SIZE],
         (celda+cordx) -> estadoCelda=(char)(x+'0');
 
         // Asignación de tipo de barco, orientacion, y estado en estructura tipo NAVE
-
-        for (int k = 1; k < x; ++k){
-        	if (((nave+(cordx+k)) -> tipoBarco) == 0){
+        for (int k = 0; k < x+1; ++k){
+        	if ((nave+(cordx+k)) -> tipoBarco == 0){
         		ld++;
-        	} else{
+        	} else if((nave+(cordx+k)) -> tipoBarco != 0){
         		(nave+cordx) -> tipoBarco = 0;
+        		(celda+cordx) -> idBarco=0;
         		(celda+cordx) -> estadoCelda = ' ';
-        		(nave+cordx) -> orientacionBarco = 'N';
+        		(nave+cordx) -> orientacionBarco = 'H';
         	}
+        }
+        if ((nave+cordx) -> orientacionBarco == 'H'){
+        	ld=0;
+			for (int k = 0; k < x; ++k){
+				nave=*(barcosDeUsuario+cordx);
+				if (((nave+(cordy+k)) -> tipoBarco) == 0){
+					ld++;
+				} else{
+					(nave+cordy) -> tipoBarco = 0; 
+					(nave+cordy) -> orientacionBarco = 'N';
+				}
+			}
         }
 
         switch((nave+cordx) -> orientacionBarco){
         	case 'V':
+				nave =*(barcosDeUsuario+cordy);
         		for (int k = 0; k < x; ++k)
-        		{
-        			(nave+cordx+k) -> tipoBarco = x;
-        			(celda+cordx+k) -> idBarco=i;
-        			(celda+cordx+k) -> estadoCelda=(char)(x+'0');
-        		}
+				{
+					(nave+cordx+k) -> tipoBarco = x;
+					(celda+cordx+k) -> idBarco=i;
+					(celda+cordx+k) -> estadoCelda=(char)(x+'0');
+				}
         		break;
         	case 'H':
-        		printf("Horizontal.\n");
+				nave=*(barcosDeUsuario+cordx);
+        		for (int k = 0; k < x; ++k)
+				{
+					(nave+cordy+k) -> tipoBarco = x;
+					(celda+cordy+k) -> idBarco=i;
+					(celda+cordy+k) -> estadoCelda=(char)(x+'0');
+				}
         		break;
         	default:
         		printf("Nada.\n");
@@ -417,8 +433,9 @@ void hacerBarco (NAVE barcosDeUsuario[SIZE][SIZE], NAVE barcoBot[SIZE][SIZE],
         j++;
         i+=1;
         limite += x;
-        printf("%d\nCoordenadas: %d, %d", ((celda+cordx) -> idBarco), cordx, cordy);
-        // system("timeout /t 1");
+        // printUser (matrix, barcosDeUsuario, row, col);
+        // printf("%d\nCoordenadas: %d, %d", ((celda+cordx) -> idBarco), cordx, cordy);
+        // system("timeout /t 3");
     } while (limite<tamanio_tabla);
 
     limite=0;
@@ -428,20 +445,19 @@ void hacerBarco (NAVE barcosDeUsuario[SIZE][SIZE], NAVE barcoBot[SIZE][SIZE],
         x = (rand() % (5 - 1 + 1))+1;
 
         // Coordenadas aleatorias
-        cordx = (rand() % ((row-1) - 0 + 1))+0;
-        cordy = (rand() % ((row-1) - 0 + 1))+0;
+        cordx = (rand() % (((row-5)-1) - 0 + 1))+0;
+        cordy = (rand() % (((row-2)-1) - 0 + 1))+0;
 
         // Apuntador a la coordenada "x"
         celda=*(matrixBot+cordy);
     	nave =*(barcoBot+cordy);
 
         // Comprueba si la celda ya está en uso
-        if (((celda+cordx) -> idBarco) != 0)
-        {
-        	printf("Recalculando... %d\nCoordenadas: %d, %d", ((celda+cordx) -> idBarco), cordx, cordy);
-        	cordx = (rand() % ((row-1) - 0 + 1))+0;
-        	cordy = (rand() % ((row-1) - 0 + 1))+0;
-        }
+		while(((celda+cordx) -> idBarco) != 0){
+			printf("Recalculando... %d\nCoordenadas: %d, %d", ((celda+cordx) -> idBarco), cordx, cordy);
+			cordx = (rand() % (((row-5)-1) - 0 + 1))+0;
+			cordy = (rand() % (((row-2)-1) - 0 + 1))+0;
+		}
 
         // Asigna el id y tipo de barco a la celda
     	(nave+cordx) -> tipoBarco = x;
@@ -449,27 +465,47 @@ void hacerBarco (NAVE barcosDeUsuario[SIZE][SIZE], NAVE barcoBot[SIZE][SIZE],
         (celda+cordx) -> estadoCelda=(char)(x+'0');
 
         // Asignación de tipo de barco, orientacion, y estado en estructura tipo NAVE
-
-        for (int k = 1; k < x; ++k){
-        	if (((nave+(cordx+k)) -> tipoBarco) == 0){
+        for (int k = 0; k < x+1; ++k){
+        	if ((nave+(cordx+k)) -> tipoBarco == 0){
         		ld++;
-        	} else{
-        		(nave+cordx) -> tipoBarco = 0; 
-        		(nave+cordx) -> orientacionBarco = 'N';
+        	} else if((nave+(cordx+k)) -> tipoBarco != 0){
+        		(nave+cordx) -> tipoBarco = 0;
+        		(celda+cordx) -> idBarco=0;
+        		(celda+cordx) -> estadoCelda = ' ';
+        		(nave+cordx) -> orientacionBarco = 'H';
         	}
+        }
+        if ((nave+cordx) -> orientacionBarco == 'H'){
+        	ld=0;
+			for (int k = 0; k < x; ++k){
+				nave=*(barcoBot+cordx);
+				if (((nave+(cordy+k)) -> tipoBarco) == 0){
+					ld++;
+				} else{
+					(nave+cordy) -> tipoBarco = 0; 
+					(nave+cordy) -> orientacionBarco = 'N';
+				}
+			}
         }
 
         switch((nave+cordx) -> orientacionBarco){
         	case 'V':
+				nave =*(barcoBot+cordy);
         		for (int k = 0; k < x; ++k)
-        		{
-        			(nave+cordx+k) -> tipoBarco = x;
-        			(celda+cordx+k) -> idBarco=i;
-        			(celda+cordx+k) -> estadoCelda=(char)(x+'0');
-        		}
+				{
+					(nave+cordx+k) -> tipoBarco = x;
+					(celda+cordx+k) -> idBarco=i;
+					(celda+cordx+k) -> estadoCelda=(char)(x+'0');
+				}
         		break;
         	case 'H':
-        		printf("Horizontal.\n");
+				nave=*(barcoBot+cordx);
+        		for (int k = 0; k < x; ++k)
+				{
+					(nave+cordy+k) -> tipoBarco = x;
+					(celda+cordy+k) -> idBarco=i;
+					(celda+cordy+k) -> estadoCelda=(char)(x+'0');
+				}
         		break;
         	default:
         		printf("Nada.\n");
@@ -481,8 +517,9 @@ void hacerBarco (NAVE barcosDeUsuario[SIZE][SIZE], NAVE barcoBot[SIZE][SIZE],
         j++;
         i+=1;
         limite += x;
-        printf("%d\nCoordenadas: %d, %d", ((celda+cordx) -> idBarco), cordx, cordy);
-        // system("timeout /t 1");
+        // printUser (matrix, barcosDeUsuario, row, col);
+        // printf("%d\nCoordenadas: %d, %d", ((celda+cordx) -> idBarco), cordx, cordy);
+        // system("timeout /t 3");
     } while (limite<tamanio_tabla);
 }
 
