@@ -178,7 +178,7 @@ void printUser (CELDA matrix[SIZE][SIZE], int row, int column){
 	printf("     ");
 	for (int i = 0; i < column; ++i)
 	{
-		printf("%-2d ", i+1);
+		printf("%-3d ", i+1);
 	}	printf("\n    ");
 	for (int i = 0; i < column; ++i)
 	{
@@ -192,8 +192,8 @@ void printUser (CELDA matrix[SIZE][SIZE], int row, int column){
 
             // printf(" %c ", ((celda+j) -> estadoCelda));
             // printf("%d ", ((celda+j) -> impactoBarco));
-            printf("%d-", ((celda+j) -> idBarco));
-            printf("%d ", ((celda+j) -> tipoDeBarco));
+            // printf(" %2d ", ((celda+j) -> idBarco));
+            // printf("%d ", ((celda+j) -> tipoDeBarco));
         }
         printf("|\n");
     }	printf("    ");
@@ -210,7 +210,7 @@ void printBot (CELDA matrixBot[SIZE][SIZE], int row, int column){
 	printf("     ");
 	for (int i = 0; i < column; ++i)
 	{
-		printf("%-2d ", i+1);
+		printf("%-3d ", i+1);
 	}	printf("\n    ");
 	for (int i = 0; i < column; ++i)
 	{
@@ -224,8 +224,8 @@ void printBot (CELDA matrixBot[SIZE][SIZE], int row, int column){
             // printf("%d ", matrix[i][j]);
             // printf(" %c ", ((celda+j) -> estadoCelda));
             // printf("%d ", ((celda+j) -> impactoBarco));
-            printf("%d-", ((celda+j) -> idBarco));
-            printf("%d ", ((celda+j) -> tipoDeBarco));
+            // printf(" %2d ", ((celda+j) -> idBarco));
+            // printf("%d ", ((celda+j) -> tipoDeBarco));
         }
         printf("|\n");
     }	printf("    ");
@@ -324,10 +324,10 @@ void hacerBarco (NAVE barcoUsuario[SIZE][SIZE], NAVE barcoBot[SIZE][SIZE],
 	srand(time(NULL));
     int x, cordx, cordy, tamanio_tabla, limite, i;
     CELDA *celda;
+    NAVE *nave;
     limite=0;
     i = 1;
     tamanio_tabla = (row*col)*0.3;
-
     do{
     	// Se asigna el tipo de barco
         x = (rand() % (5 - 1 + 1))+1;
@@ -350,12 +350,16 @@ void hacerBarco (NAVE barcoUsuario[SIZE][SIZE], NAVE barcoBot[SIZE][SIZE],
         // Asigna el id y tipo de barco a la celda
         (celda+cordx) -> tipoDeBarco=x;
         (celda+cordx) -> idBarco=i;
+        // Asignación de tipo de barco, orientacion, y estado en estructura tipo NAVE
+    	nave =* (barcoUsuario+i);
+    	(nave+0) -> tipoBarco = (celda+cordx) -> tipoDeBarco;
+
 
         // printf("%d\n", x);
         i+=1;
         limite += x;
         printf("%d\nCoordenadas: %d, %d", ((celda+cordx) -> idBarco), cordx, cordy);
-        system("timeout /t 1");
+        // system("timeout /t 1");
     } while (limite<tamanio_tabla);
 
     limite=0;
@@ -386,7 +390,7 @@ void hacerBarco (NAVE barcoUsuario[SIZE][SIZE], NAVE barcoBot[SIZE][SIZE],
         i+=1;
         limite += x;
         printf("%d\nCoordenadas: %d, %d", ((celda+cordx) -> idBarco), cordx, cordy);
-        system("timeout /t 1");
+        // system("timeout /t 1");
     } while (limite<tamanio_tabla);
 }
 
