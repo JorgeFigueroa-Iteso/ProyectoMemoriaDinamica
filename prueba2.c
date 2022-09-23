@@ -22,7 +22,7 @@ int main()
 	srand(time(NULL));
     int x, y, tamanio_tabla, limite;
     limite=0;
-    tamanio_tabla = (10*10)*0.3;
+    tamanio_tabla = 100;
     
 /*
     for (int i = 0; i < tamanio_tabla; ++i)
@@ -32,10 +32,10 @@ int main()
     }
 */
     do{
-        x = (rand() % (5 - 1 + 1))+1;
+        x = (rand() % (10 - 1 + 1))+1;
         printf("%d\n", x);
 
-        limite += x;
+        limite++;
 
     } while (limite<tamanio_tabla);
 
