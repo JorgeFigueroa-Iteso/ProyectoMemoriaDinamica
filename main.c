@@ -182,7 +182,7 @@ void printUser (CELDA matrix[SIZE][SIZE], int row, int column){
 	}	printf("\n    ");
 	for (int i = 0; i < column; ++i)
 	{
-		printf("---");
+		printf("----");
 	} printf("\n");
 
     for(int i=0; i<row; i++){
@@ -205,7 +205,7 @@ void printUser (CELDA matrix[SIZE][SIZE], int row, int column){
     }	printf("    ");
 	for (int i = 0; i < column; ++i)
 	{
-		printf("---");
+		printf("----");
 	} printf("\n");
 }
 
@@ -220,7 +220,7 @@ void printBot (CELDA matrixBot[SIZE][SIZE], int row, int column){
 	}	printf("\n    ");
 	for (int i = 0; i < column; ++i)
 	{
-		printf("---");
+		printf("----");
 	} printf("\n");
 
     for(int i=0; i<row; i++){
@@ -243,7 +243,7 @@ void printBot (CELDA matrixBot[SIZE][SIZE], int row, int column){
     }	printf("    ");
 	for (int i = 0; i < column; ++i)
 	{
-		printf("---");
+		printf("----");
 	} printf("\n");
 }
 
