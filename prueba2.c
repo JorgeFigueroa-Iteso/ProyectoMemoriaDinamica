@@ -46,13 +46,13 @@ void iniciarJuego (CELDA matrix[SIZE][SIZE], CELDA matrixBot[SIZE][SIZE],
 
 void hacerBarco (NAVE barcosDeUsuario[SIZE][SIZE], NAVE barcoBot[SIZE][SIZE],
                 CELDA matrix[SIZE][SIZE], CELDA matrixBot[SIZE][SIZE],
-                int xt, int yt);
+                int xt, int yt, int limite);
 
 void printUser (CELDA matrix[SIZE][SIZE], NAVE barcosDeUsuario[SIZE][SIZE], int row, int column);
 void printBot  (CELDA matrixBot[SIZE][SIZE], NAVE barcosDeBot[SIZE][SIZE], int row, int column);
 
-void bombardeoAUsuario (NAVE barcosDeUsuario[SIZE][SIZE], CELDA matrix[SIZE][SIZE], int row, int column);
-void bombardeoABot (NAVE barcoBot[SIZE][SIZE], CELDA matrixBot[SIZE][SIZE], int row, int column);
+void bombardeoAUsuario (NAVE barcosDeUsuario[SIZE][SIZE], CELDA matrix[SIZE][SIZE], int row, int column, int turno);
+void bombardeoABot (NAVE barcoBot[SIZE][SIZE], CELDA matrixBot[SIZE][SIZE], int row, int column, int turno);
 
 // void celda(char matrix[SIZE][SIZE], char matrixBot[SIZE][SIZE]);
 
@@ -148,8 +148,7 @@ void iniciarTabla (CELDA matrix[SIZE][SIZE], CELDA matrixBot[SIZE][SIZE],
             (celda+j) -> estadoCelda=' ';
             (celda+j) -> idBarco=0;
             (celda+j) -> impactoBarco=0;
-            // (celda+j) -> tipoDeBarco=0;
-            // *(*(matrix+i)+j) == 0;
+
             (nave+j) -> tipoBarco=0;
             (nave+j) -> orientacionBarco='D';
             (nave+j) -> sunk=0;
@@ -163,8 +162,7 @@ void iniciarTabla (CELDA matrix[SIZE][SIZE], CELDA matrixBot[SIZE][SIZE],
             (celda+j) -> estadoCelda=' ';
             (celda+j) -> idBarco=0;
             (celda+j) -> impactoBarco=0;
-            // (celda+j) -> tipoDeBarco=0;
-            // *(*(matrixBot+i)+j) == 0;
+
             (nave+j) -> tipoBarco=0;
             (nave+j) -> orientacionBarco='D';
             (nave+j) -> sunk=0;
@@ -211,10 +209,12 @@ void printUser (CELDA matrix[SIZE][SIZE], NAVE barcosDeUsuario[SIZE][SIZE], int 
     } printf("\n");
 }
 
-void printBot (CELDA matrixBot[SIZE][SIZE], NAVE barcosDeUsuario[SIZE][SIZE], int row, int column){
-    printf("\n\n   <--Matriz Maquina-->\n");
+void printBot (CELDA matrixBot[SIZE][SIZE], NAVE barcosDeBot[SIZE][SIZE], int row, int column){
+    printf("   <--Matriz Maquina-->\n");
+
     CELDA *celda;
     NAVE *nave;
+
     printf("     ");
     for (int i = 0; i < column; ++i)
     {
@@ -227,24 +227,20 @@ void printBot (CELDA matrixBot[SIZE][SIZE], NAVE barcosDeUsuario[SIZE][SIZE], in
 
     for(int i=0; i<row; i++){
         celda=*(matrixBot+i);
-        nave=*(barcosDeUsuario+i);
+        nave=*(barcosDeBot+i);
         printf("%2d |", i);
         for(int j=0; j<column; j++){
 
-            // printf(" %2c ", ((celda+j) -> estadoCelda));
-            // printf("%d ", ((celda+j) -> impactoBarco));
-
+            
             if ((celda+j) -> impactoBarco != 0) {
                 printf(" x  ");
             } else if (((celda+j) -> idBarco) != 0) {
-                printf(" %-2d ", ((celda+j) -> idBarco));
+                // printf(" %-2d ", ((celda+j) -> idBarco));
+                printf(" %-2d ", (nave+j)->tipoBarco);
             } else{
                 printf(" %2c ", ((celda+j) -> estadoCelda));
             }
-
-            // printf(" %2d ", ((celda+j) -> idBarco));
-            // printf("%d", ((celda+j) -> tipoDeBarco));
-            // printf(" %2d ", ((nave+j) -> tipoBarco));
+            
         }
         printf("|\n");
     }   printf("    ");
@@ -313,10 +309,10 @@ void mostrarBarco(){
 
 void hacerBarco (NAVE barcosDeUsuario[SIZE][SIZE], NAVE barcoBot[SIZE][SIZE],
                 CELDA matrix[SIZE][SIZE], CELDA matrixBot[SIZE][SIZE],
-                int row, int col){
+                int row, int col, int limite){
 
     srand(time(NULL));
-    int x, cordx, cordy, tamanio_tabla, limite, i, j=0, ld, k=0;
+    int x, cordx, cordy, tamanio_tabla, i, j=0, ld, k=0;
     int limiteUser=0, limiteBot=0;
     NAVE *nave;
     CELDA *celda, *auxB;
@@ -418,17 +414,18 @@ void hacerBarco (NAVE barcosDeUsuario[SIZE][SIZE], NAVE barcoBot[SIZE][SIZE],
 
         // Coordenadas aleatorias
         cordx = (rand() % (((row-5)-1) - 0 + 1))+0;
-        cordy = (rand() % (((row-1)-1) - 0 + 1))+0;
+        cordy = (rand() % (((row-4)-1) - 0 + 1))+0;
 
         // Apuntador a la coordenada "x"
-        celda=*(matrixBot+cordy);
         nave =*(barcoBot+cordy);
+        celda=*(matrixBot+cordy);
+        auxB=*(matrixBot+cordy);
 
         // Comprueba si la celda ya está en uso
         while((celda+cordx) -> idBarco != 0){
-            // printf("\nRecalculando... %d\nCoordenadas: %d, %d", ((celda+cordx) -> idBarco), cordx, cordy);
-            cordx = (rand() % (((row-5)-1) - 0 + 1))+0;
-            cordy = (rand() % (((row-1)-1) - 0 + 1))+0;
+            // printf("\nRecalculando... %d\n-Coordenadas: %d, %d\n", ((celda+cordx) -> idBarco), cordx, cordy);
+            cordx = (rand() % (((row-4)-1) - 0 + 1))+0;
+            cordy = (rand() % (((row-4)-1) - 0 + 1))+0;
             celda=*(matrixBot+cordy);
             nave =*(barcoBot+cordy);
         }
@@ -441,89 +438,62 @@ void hacerBarco (NAVE barcosDeUsuario[SIZE][SIZE], NAVE barcoBot[SIZE][SIZE],
 
         // Comprueba la orientación de la nave
         while(k<x){
-            // printf("Tipo de Barco - %d\nId de barco - %d\n", (nave+(cordx+k)) -> tipoBarco, (celda+cordx) -> idBarco);
             k++;
-            // system("timeout /t 1");
-            for (int i = 1; i < x; ++i)
-            {
-                if ((celda+(cordx+i)) -> idBarco != 0){
-                    // printf("Cuidado! - %d esta de pormedio\n", (celda+cordx) -> idBarco);
+            for (int k = 1; k < x; ++k){
+
+                auxB=*(matrixBot+(cordy-k));
+
+                if ((celda+(cordx+k)) -> idBarco == 0){
+                    (nave+cordx) -> orientacionBarco = 'D';
+                    break;
+                } 
+                else if ((auxB+cordx) -> idBarco == 0)
+                {
+                    (nave+cordx) -> orientacionBarco = 'B';
                     break;
                 }
-            }
-
-            // system("timeout /t 0");
-        }
-
-
-
-
-        /*
-        // Asignación de tipo de barco, orientacion, y estado en estructura tipo NAVE
-        for (int k = 0; k < x+1; ++k){
-            if ((nave+(cordx+k)) -> tipoBarco == 0){
-                ld++;
-            }
-            if((nave+(cordx+k)) -> tipoBarco != 0){
-                (nave+cordx) -> tipoBarco = 0;
-                (celda+cordx) -> idBarco=0;
-                (celda+cordx) -> estadoCelda = ' ';
-                (nave+cordx) -> orientacionBarco = 'H';
-                break;
-            }
-        }
-
-        if ((nave+cordx) -> orientacionBarco == 'H'){
-            ld=0;
-            for (int k = 0; k < x; ++k){
-                nave=*(barcoBot+cordx);
-                if (((nave+(cordy+k)) -> tipoBarco) == 0){
-                    ld++;
-                } else{
-                    (nave+cordy) -> tipoBarco = 0; 
-                    (nave+cordy) -> orientacionBarco = 'N';
+                else if ((auxB+cordx) -> idBarco != 0)
+                {
+                    (nave+cordx) -> orientacionBarco = 'x';
+                    break;
                 }
-            }
+            } 
         }
 
         switch((nave+cordx) -> orientacionBarco){
-            case 'V':
-                nave =*(barcoBot+cordy);
+            case 'B':
+                printf("Horientacion para colocar al barco es: B\n");
                 for (int k = 0; k < x; ++k)
                 {
-                    (nave+cordx+k) -> tipoBarco = x;
-                    (celda+cordx+k) -> idBarco=i;
-                    (celda+cordx+k) -> estadoCelda=(char)(x+'0');
+                    celda=*(matrixBot+(cordy+k));
+                    nave=*(barcoBot+(cordy+k));
+                    (celda+cordx) -> idBarco = i;
+                    (nave+cordx) -> tipoBarco = x;
                 }
                 break;
-            case 'H':
-                // nave=*(barcoBot+cordx);
-    //          for (int k = 0; k < x; ++k)
-                // {
-                //  (nave+cordy+k) -> tipoBarco = x;
-                //  (celda+cordy+k) -> idBarco=i;
-                //  (celda+cordy+k) -> estadoCelda=(char)(x+'0');
-                // }
+            case 'D':
+                printf("Horientacion para colocar al barco es: D\n");
+                for (int k = 0; k < x; ++k)
+                {
+                    (celda+(cordx+k)) -> idBarco = i;
+                    (nave+(cordx+k)) -> tipoBarco = x;
+                }                
                 break;
-            default:
-                printf("Nada.\n");
+            case 'x':
+                (nave+cordx) -> tipoBarco = 0;
+                (celda+cordx) -> idBarco = 0;
                 break;
-                
-        }*/
+        }
 
-        // printf("%d\n", x);
         j++;
         i+=1;
         limite += x;
-        // printUser (matrixBot, barcoBot, row, col);
-        // printf("%d\nCoordenadas: %d, %d", ((celda+cordx) -> idBarco), cordx, cordy);
-        // system("timeout /t 3");
     } while (limite<tamanio_tabla);
-    limiteBot = limite;
+    limiteUser=limite;
 }
 
 void bombardeoAUsuario (NAVE barcosDeUsuario[SIZE][SIZE], CELDA matrix[SIZE][SIZE], 
-                        int row, int column){
+                        int row, int column, int turno){
 
     srand(time(NULL));
     int x, y;
@@ -552,7 +522,7 @@ void bombardeoAUsuario (NAVE barcosDeUsuario[SIZE][SIZE], CELDA matrix[SIZE][SIZ
 }
 
 void bombardeoABot (NAVE barcoBot[SIZE][SIZE], CELDA matrixBot[SIZE][SIZE],
-                    int x, int y){
+                    int x, int y, int turno){
     CELDA *celda;
     NAVE *nave;
 
@@ -576,17 +546,17 @@ void bombardeoABot (NAVE barcoBot[SIZE][SIZE], CELDA matrixBot[SIZE][SIZE],
 void iniciarJuego(CELDA matrix[SIZE][SIZE], CELDA matrixBot[SIZE][SIZE],
                 NAVE barcosDeBot[SIZE][SIZE], NAVE barcosDeUsuario[SIZE][SIZE], 
                     int row, int col, int dif, int coordx, int coordy, int turno){
-    int cambio;
+    int cambio, limite = 0;
     switch (dif){
-
+        int btotU=0, btotB=0;
         case 1:
             printf("Dificultad 1\n");
-            hacerBarco(barcosDeUsuario, barcosDeBot, matrix, matrixBot, row, col);
+            hacerBarco(barcosDeUsuario, barcosDeBot, matrix, matrixBot, row, col, limite);
 
             do{
                 system("cls");
                 printUser (matrix, barcosDeUsuario, row, col);
-                printBot (matrixBot, barcosDeUsuario,row, col);
+                printBot (matrixBot, barcosDeBot,row, col);
 
                 cambio = (rand() % (1 - 0 + 1))+0;
 
@@ -597,19 +567,14 @@ void iniciarJuego(CELDA matrix[SIZE][SIZE], CELDA matrixBot[SIZE][SIZE],
                     printf("y: ");
                     scanf("%d", &coordy);
                     /* code */
-                    bombardeoABot(barcosDeBot, matrixBot, coordx, coordy);
+                    bombardeoABot(barcosDeBot, matrixBot, coordx, coordy, turno);
                 } else{
                     printf("\n\n---Es el turno de la computadora---\n");
-                    bombardeoAUsuario(barcosDeUsuario, matrix, row, col);
+                    bombardeoAUsuario(barcosDeUsuario, matrix, row, col, turno);
                 }
                 // turno++;
 
-            } while (turno=1);
-
-            do
-            {
-                turno++;
-            } while (turno!=10);
+            } while ();
 
             system("timeout /t 10");
 
@@ -623,7 +588,7 @@ void iniciarJuego(CELDA matrix[SIZE][SIZE], CELDA matrixBot[SIZE][SIZE],
 
         case 2:
             printf("Dificultad 1\n");
-            hacerBarco(barcosDeUsuario, barcosDeBot, matrix, matrixBot, row, col);
+            hacerBarco(barcosDeUsuario, barcosDeBot, matrix, matrixBot, row, col, limite);
 
             do{
                 system("cls");
@@ -635,7 +600,7 @@ void iniciarJuego(CELDA matrix[SIZE][SIZE], CELDA matrixBot[SIZE][SIZE],
                 printf("y: ");
                 scanf("%d", &coordy);
 
-                bombardeoABot(barcosDeBot, matrixBot, coordx, coordy);
+                bombardeoABot(barcosDeBot, matrixBot, coordx, coordy, turno);
 
                 printf("Turnos: %d\n", turno);
                 turno++;
@@ -644,7 +609,7 @@ void iniciarJuego(CELDA matrix[SIZE][SIZE], CELDA matrixBot[SIZE][SIZE],
             turno=0;
             do
             {
-                bombardeoAUsuario(barcosDeUsuario, matrix, row, col);
+                bombardeoAUsuario(barcosDeUsuario, matrix, row, col, turno);
             } while (turno!=10);
 
             system("timeout /t 10");
