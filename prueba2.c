@@ -574,7 +574,7 @@ void iniciarJuego(CELDA matrix[SIZE][SIZE], CELDA matrixBot[SIZE][SIZE],
                 }
                 // turno++;
 
-            } while ();
+            } while (turno!=1);
 
             system("timeout /t 10");
 
