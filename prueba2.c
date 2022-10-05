@@ -340,7 +340,7 @@ void hacerBarco (NAVE barcosDeUsuario[SIZE][SIZE], NAVE barcoBot[SIZE][SIZE],
 
         // Coordenadas aleatorias
         cordx = (rand() % (((row-5)-1) - 0 + 1))+0;
-        cordy = (rand() % (((row-1)-1) - 0 + 1))+0;
+        cordy = (rand() % (((row-4)-1) - 0 + 1))+0;
 
         // Apuntador a la coordenada "x"
         celda=*(matrix+cordy);
@@ -350,7 +350,7 @@ void hacerBarco (NAVE barcosDeUsuario[SIZE][SIZE], NAVE barcoBot[SIZE][SIZE],
         while((celda+cordx) -> idBarco != 0){
             printf("\nRecalculando... %d\n-Coordenadas: %d, %d\n", ((celda+cordx) -> idBarco), cordx, cordy);
             cordx = (rand() % (((row-4)-1) - 0 + 1))+0;
-            cordy = (rand() % (((row-1)-1) - 0 + 1))+0;
+            cordy = (rand() % (((row-4)-1) - 0 + 1))+0;
             celda=*(matrix+cordy);
             nave =*(barcosDeUsuario+cordy);
         }
@@ -370,11 +370,15 @@ void hacerBarco (NAVE barcosDeUsuario[SIZE][SIZE], NAVE barcoBot[SIZE][SIZE],
             for (int k = 1; k < x; ++k){
                 if ((celda+(cordx+k)) -> idBarco != 0){
                     printf("! - Cuidado! - %d esta de pormedio\n", (celda+cordx) -> idBarco);
-                    (nave+cordx) -> orientacionBarco = 'A';
-                    break;
-                } else {
-                    (nave+cordx) -> orientacionBarco = 'D';
+                    (nave+cordx) -> orientacionBarco = 'B';
+                    // break;
+                } else if ((celda+(cordx-k)) -> idBarco != 0){
+                    (nave+cordx) -> orientacionBarco = 'I';
                     // system("timeout /t 0");
+                    // break;
+                } else{
+                    (nave+cordx) -> orientacionBarco = 'D';
+                    // break;
                 }
             } printf("Tipo de barco final - %d\n", (nave+cordx) -> tipoBarco);
             printf("Horientacion final del barco: %c\n", (nave+cordx)->orientacionBarco);
@@ -384,13 +388,23 @@ void hacerBarco (NAVE barcosDeUsuario[SIZE][SIZE], NAVE barcoBot[SIZE][SIZE],
         }
 
         switch((nave+cordx) -> orientacionBarco){
-            case 'A':
-                printf("Horientacion para colocar al barco es: A\n");
+            case 'B':
+                printf("Horientacion para colocar al barco es: B\n");
                 for (int k = 0; k < x; ++k)
                 {
-                    (celda+(cordy+k)) -> idBarco = i;
-                    (nave+(cordy+k)) -> tipoBarco = x;
+                    celda=*(matrix+(cordy+k));
+                    nave=*(barcosDeUsuario+(cordy+k));
+                    (celda+cordx) -> idBarco = i;
+                    (nave+cordx) -> tipoBarco = x;
                 }
+                break;
+            case 'I':
+                printf("Horientacion para colocar al barco es: I\n");
+                for (int k = 0; k < x; ++k)
+                {
+                    (celda+(cordx-k)) -> idBarco = i;
+                    (nave+(cordx-k)) -> tipoBarco = x;
+                } 
                 break;
             default:
                 printf("Horientacion para colocar al barco es: D\n");
