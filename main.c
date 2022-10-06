@@ -669,7 +669,7 @@ void iniciarJuego(CELDA matrix[SIZE][SIZE], CELDA matrixBot[SIZE][SIZE],
             printf("Se termino el juego!\n");
             printUser (matrix, barcosDeUsuario,row, col);
             printBot (matrixBot, barcosDeBot, row, col);
-            system("timeout /t 10");
+            system("pause");
 
             break;
 
@@ -708,7 +708,7 @@ void iniciarJuego(CELDA matrix[SIZE][SIZE], CELDA matrixBot[SIZE][SIZE],
             printf("Se termino el juego!\n");
             printUser (matrix, barcosDeUsuario,row, col);
             printBot (matrixBot, barcosDeBot, row, col);
-            system("timeout /t 10");
+            system("pause");
 
             break;
 
