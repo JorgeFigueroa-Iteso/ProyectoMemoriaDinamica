@@ -405,7 +405,7 @@ void hacerBarco (NAVE barcosDeUsuario[SIZE][SIZE], NAVE barcoBot[SIZE][SIZE],
 
         switch((nave+cordx) -> orientacionBarco){
             case 'B':
-                printf("Horientacion para colocar al barco es: B\n");
+                // printf("Horientacion para colocar al barco es: B\n");
                 for (int k = 0; k < x; ++k)
                 {
                     celda=*(matrix+(cordy+k));
@@ -415,7 +415,7 @@ void hacerBarco (NAVE barcosDeUsuario[SIZE][SIZE], NAVE barcoBot[SIZE][SIZE],
                 }
                 break;
             case 'D':
-                printf("Horientacion para colocar al barco es: D\n");
+                // printf("Horientacion para colocar al barco es: D\n");
                 for (int k = 0; k < x; ++k)
                 {
                     (celda+(cordx+k)) -> idBarco = i;
