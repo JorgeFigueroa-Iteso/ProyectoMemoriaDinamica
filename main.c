@@ -72,7 +72,7 @@ int main (){
 
     char op;
 
-    int row=5, col=5, x, y;
+    int row=10, col=10, x, y;
     int dif=1;
     int cambio = 0;
     
