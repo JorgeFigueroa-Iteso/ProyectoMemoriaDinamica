@@ -12,7 +12,7 @@
 #define L 1
 */
 
-int turno=0, limiteUser=0, limiteBot=0, auxUsr=0, auxBot=0;
+int turno, limiteUser, limiteBot, auxUsr, auxBot;
 
 typedef struct{
     char estadoCelda;
