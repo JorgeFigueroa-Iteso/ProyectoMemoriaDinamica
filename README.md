@@ -41,4 +41,4 @@ Iniciar y salir del juego
 > Si lo copias, eres puto
 
 ## Estatus del proyecto
-Avance en la lógica del proyecto
+El proyecto concluyó
