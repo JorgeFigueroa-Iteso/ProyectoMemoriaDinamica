@@ -3,7 +3,7 @@
 [![Build Status](https://travis-ci.org/joemccann/dillinger.svg?branch=master)](https://github.com/JorgeFigueroa-Iteso/ProyectoMemoriaDinamica/blob/main/main.c)
 
 ## Descripción
-Todos los puntos que lleva este proyecto están mas claaros en el archivo evaluación01b-1.pdf
+Todos los puntos que lleva este proyecto están mas claros en [evaluación01b](https://github.com/JorgeFigueroa-Iteso/ProyectoMemoriaDinamica/blob/main/evaluación01b-1.pdf)
 
 Este se realizará SIN interfaz gráfica, por lo que será en consola
 
