@@ -37,6 +37,7 @@ Iniciar y salir del juego
 
 ## Licencia
 > No se permite el uso de este código, tal como plagio, en caso de querer utilizar el código, contacte con alguno de los dos Colaboladores
+> Si desea utilizar el código, contácteme [DISCORD](https://discordapp.com/users/778382750502748160)
 
 ## Estatus del proyecto
 El proyecto concluyó
