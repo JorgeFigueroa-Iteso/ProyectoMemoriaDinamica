@@ -38,7 +38,5 @@ Iniciar y salir del juego
 ## Licencia
 > No se permite el uso de este código, tal como plagio, en caso de querer utilizar el código, contacte con alguno de los dos Colaboladores
 
-> Si lo copias, eres puto
-
 ## Estatus del proyecto
 El proyecto concluyó
