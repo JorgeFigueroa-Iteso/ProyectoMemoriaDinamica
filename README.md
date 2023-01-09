@@ -28,12 +28,12 @@ Iniciar y salir del juego
 > Salir del juego
 
 ## Colaboradores
-- Enoch Joaquín Álvarez Goñi
-- Jorge Ramón Figueroa Maya
+- Enoch J.A.G
+- Jorge R.F.M
 
 ## Inspectores
-- Juan Pablo Alvarez Camarena
-- Sebastián Carrillo Cuevas
+- Juan P.A.C
+- Sebastián C.C
 
 ## Licencia
 > No se permite el uso de este código, tal como plagio, en caso de querer utilizar el código, contacte con alguno de los dos Colaboladores
